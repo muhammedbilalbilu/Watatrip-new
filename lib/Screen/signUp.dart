@@ -945,39 +945,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(7, 10, 7, 7),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF10606),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Align(
-                              alignment: AlignmentDirectional(-0.05, 0),
-                              child: SelectionArea(
-                                  child: InkWell(
-                                onTap: () {
-                                  Registerer();
-                                },
-                                child: !_isLoading
-                                    ? Text(
-                                        'create Account',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Open Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBtnText,
-                                              fontSize: 22,
-                                            ),
-                                      )
-                                    : Center(
-                                        child: CircularProgressIndicator(),
-                                      ),
-                              )),
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(7, 20, 7, 18),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFF10606),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Align(
+                                alignment: AlignmentDirectional(-0.05, 0),
+                                child: SelectionArea(
+                                    child: InkWell(
+                                  onTap: () {
+                                    Registerer();
+                                  },
+                                  child: !_isLoading
+                                      ? Text(
+                                          'create Account',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Open Sans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBtnText,
+                                                fontSize: 22,
+                                              ),
+                                        )
+                                      : Center(
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                )),
+                              ),
                             ),
                           ),
                         ),
