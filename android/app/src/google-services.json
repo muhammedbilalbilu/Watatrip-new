@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "53606058600",
+    "project_id": "watatrip-22d79",
+    "storage_bucket": "watatrip-22d79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53606058600:android:58b71b1892fada58e4c9dd",
+        "android_client_info": {
+          "package_name": "com.mycompany.watatrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53606058600-k9elg9pr5j6iqvs3vi8u8cqj0lt6tppj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa7neInbVnL4U1vQF91QIXlOQ0br0cA18"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53606058600-k9elg9pr5j6iqvs3vi8u8cqj0lt6tppj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
