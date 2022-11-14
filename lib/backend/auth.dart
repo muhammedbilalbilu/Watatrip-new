@@ -118,7 +118,7 @@ class AuthMethods {
         }
         res = true;
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => HomePage()));
+            .push(MaterialPageRoute(builder: (context) => HomePageWidget()));
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);
