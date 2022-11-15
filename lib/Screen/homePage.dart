@@ -60,7 +60,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 .secondaryBackground,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.9, 4),
+                            alignment: AlignmentDirectional(0.65, 1),
                             child: FlutterFlowIconButton(
                               borderColor: Colors.transparent,
                               borderRadius: 30,
@@ -105,83 +105,77 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
                     child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 140,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBtnText,
-                      ),
-                      child: ListView(
-                        padding: EdgeInsets.zero,
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                            child: Container(
-                              height: 100,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).lineColor,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15),
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10),
+                        width: MediaQuery.of(context).size.width,
+                        height: 140,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBtnText,
+                        ),
+                        child: ListView(
+                          padding: EdgeInsets.zero,
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                              child: Container(
+                                width: 130,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 1,
+                                      color: Color(0xFFCDCDCD),
+                                      offset: Offset(0, 10),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(15),
+                                    bottomRight: Radius.circular(15),
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(10),
+                                  ),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(-0.65, -0.8),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 10,
+                                            top: 10,
+                                            bottom: 5,
+                                            right: 10),
+                                        child: Image.network(
+                                          'https://s3-alpha-sig.figma.com/img/4ed0/066a/3cdf8e391c09a4add5f8ca5e47ce412b?Expires=1668988800&Signature=au-PekqbJ-4RqYY5awM2yek4vyD86IeYg0gi9Ci91yr-kyB5e50Fy08qrlQWN9O1e7YBUIGrJJeSWAFgy-fy77BunKYEhcLIzE-EIzp4kukrewOqAlgF8kCkDOj659TqDZrPuRVHpQwHLmDlBsdL0jBlkcVQFtHW1U2CtOMy-b1iJoPqDaIX62ZnI~kdJT3PkQTKVsKv6PWXWp8CL4zVdGCrDycpaofM0CJMprAmOwCTNqn9dLagW2cT0IiEUFbF9sstieevYUZ6psXD1diyfMI8G6VYg~16xbvywTSKE0hd6NjlxJ1IPMovFaMVUHlGIDM4pv8ySxjhDQHocZVkLA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+                                          width: 100,
+                                          height: 100,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      SelectionArea(
+                                          child: Padding(
+                                        padding: const EdgeInsets.only(left: 5),
+                                        child: Text(
+                                          'Capitiol commons',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 13,
+                                              ),
+                                        ),
+                                      )),
+                                    ],
+                                  ),
                                 ),
                               ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 13, 5, 5),
-                                    child: Image.network(
-                                      'https://s3-alpha-sig.figma.com/img/4ed0/066a/3cdf8e391c09a4add5f8ca5e47ce412b?Expires=1668988800&Signature=au-PekqbJ-4RqYY5awM2yek4vyD86IeYg0gi9Ci91yr-kyB5e50Fy08qrlQWN9O1e7YBUIGrJJeSWAFgy-fy77BunKYEhcLIzE-EIzp4kukrewOqAlgF8kCkDOj659TqDZrPuRVHpQwHLmDlBsdL0jBlkcVQFtHW1U2CtOMy-b1iJoPqDaIX62ZnI~kdJT3PkQTKVsKv6PWXWp8CL4zVdGCrDycpaofM0CJMprAmOwCTNqn9dLagW2cT0IiEUFbF9sstieevYUZ6psXD1diyfMI8G6VYg~16xbvywTSKE0hd6NjlxJ1IPMovFaMVUHlGIDM4pv8ySxjhDQHocZVkLA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                            child: Container(
-                              width: 150,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).lineColor,
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15),
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 13, 5, 5),
-                                    child: Image.network(
-                                      'https://s3-alpha-sig.figma.com/img/2222/bc1f/6977a9eb477ae86fb1879dc9f4601f32?Expires=1668988800&Signature=SVhscqspcLQ1RjCOKmEEN5MakWH3wHWBmdK9QRrwzWQDaSV8vqv5FCeFc7Se5r9qt9IfZRfXSEOBHA4JpRXAykjf5YIRQ~K3OKAeRvgMZi-NJYM~UacC3ohE8TNq7gk9I1QpxunFfg~X15kIJjxEOX76Cmhjv1~jk8njyqxSrnFAz8w2eMtJ-yQrwT-wRED~RbnqfRUgDAknwt9pWHno9E3Y1tiB7xg5juVDdaxSuieNfoV2Fvvh4qVdlhdMjIasdFUNDqceNoyRxvVNqTTqJZbcBAasuW0KZ1aNi3NszutEMUBaYXSeuRc8-NLv~N235Dl7w1Efq1lunekXkCsjew__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                          ],
+                        )),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: 20,

@@ -1,9 +1,5 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:watatrip/flutter_flow/image.dart';
 
 class CarouselLoading extends StatelessWidget {
   @override
