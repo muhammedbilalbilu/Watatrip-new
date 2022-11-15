@@ -62,7 +62,7 @@ class MobileScreenLayout extends StatelessWidget {
                                 alignment: AlignmentDirectional(-0.8, -0.05),
                                 child: SelectionArea(
                                     child: Text(
-                                  'Windfarm Nature Escape',
+                                  'Windfarm ',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -91,10 +91,13 @@ class MobileScreenLayout extends StatelessWidget {
                             buttonSize: 60,
                             fillColor:
                                 FlutterFlowTheme.of(context).primaryBtnText,
-                            icon: Icon(
-                              Icons.search,
-                              color: Color(0xFFCDCDCD),
-                              size: 30,
+                            icon: Align(
+                              alignment: AlignmentDirectional(0.8, -0),
+                              child: Icon(
+                                Icons.search,
+                                color: Color(0xFFCDCDCD),
+                                size: 30,
+                              ),
                             ),
                             onPressed: () {
                               print('IconButton pressed ...');

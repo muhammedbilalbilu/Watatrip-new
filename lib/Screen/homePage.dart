@@ -51,28 +51,30 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ),
-                      Container(
-                        width: 100,
-                        height: 70,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                        ),
-                        child: Align(
-                          alignment: AlignmentDirectional(0.65, 1),
-                          child: FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 60,
-                            icon: Icon(
-                              Icons.search,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 25,
+                      Expanded(
+                        child: Container(
+                          width: 100,
+                          height: 70,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.9, 4),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 60,
+                              icon: Icon(
+                                Icons.search,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 25,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
                             ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
-                            },
                           ),
                         ),
                       ),
