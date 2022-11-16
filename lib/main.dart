@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:watatrip/Screen/Login.dart';
+import 'package:watatrip/Screen/detailesScreen.dart';
 
 import 'package:watatrip/Screen/homePage.dart';
 
@@ -24,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.light),
-      home: LoginScreen(),
+      home: MobileScreenLayout(),
     );
   }
 }
