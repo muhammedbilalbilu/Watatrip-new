@@ -160,10 +160,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       controller: textController1,
-                      autofocus: true,
-                      obscureText: true,
+                      autofocus: false,
+                      obscureText: false,
                       decoration: InputDecoration(
-                        hintText: 'Email ',
+                        hintText: 'Enter your email',
                         hintStyle: FlutterFlowTheme.of(context).bodyText2,
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -208,7 +208,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         filled: true,
                         fillColor: FlutterFlowTheme.of(context).primaryBtnText,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Open Sans',
+                            fontSize: 15,
+                          ),
+                      textAlign: TextAlign.start,
                     ),
                   ),
                 ),

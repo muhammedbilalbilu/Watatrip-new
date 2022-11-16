@@ -1,14 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+
 import 'package:watatrip/flutter_flow/image.dart';
 
 class CarouselImage extends StatelessWidget {
-  const CarouselImage({Key? key}) : super(key: key);
+  List<String> imageadd;
+  CarouselImage({
+    Key? key,
+    required this.imageadd,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
-      items: GlobalVariables.images.map(
+      items: imageadd.map(
         (i) {
           return Builder(
             builder: (BuildContext context) => Image.network(
