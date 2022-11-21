@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 Apidata apidataFromJson(String str) => Apidata.fromJson(json.decode(str));
