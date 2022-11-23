@@ -3,10 +3,10 @@ import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
 class BookingConformed extends StatefulWidget {
   @override
-  State<BookingConformed> createState() => _BookingConfromeState();
+  State<BookingConformed> createState() => _BookingConformedState();
 }
 
-class _BookingConfromeState extends State<BookingConformed> {
+class _BookingConformedState extends State<BookingConformed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

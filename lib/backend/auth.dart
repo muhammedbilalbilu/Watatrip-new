@@ -112,7 +112,7 @@ class AuthMethods {
             'username': user.displayName,
             'uid': user.uid,
             'profilePhoto': user.photoURL,
-            'Eamil': user.email,
+            'Email': user.email,
             'Number': user.phoneNumber
           });
         }

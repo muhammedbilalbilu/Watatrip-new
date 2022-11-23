@@ -1,4 +1,3 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:watatrip/Screen/homePage.dart';
 import 'package:watatrip/Screen/signUp.dart';

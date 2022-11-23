@@ -1,17 +1,12 @@
-import 'dart:convert';
-
-import 'dart:ui';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/link.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+import 'package:watatrip/Screen/bookingScreen.dart';
 import 'package:watatrip/backend/ApiCall.dart';
 import 'package:watatrip/flutter_flow/canousel_slider_data.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
 import '../backend/Apidata.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 
 class MobileScreenLayout extends StatefulWidget {
   @override
@@ -28,11 +23,10 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout>
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(),
-        backgroundColor: Color(0xFFF1F3F5),
-        body: FutureBuilder(
+    return Scaffold(
+      backgroundColor: Color(0xFFF1F3F5),
+      body: SafeArea(
+        child: FutureBuilder(
           builder: (context, AsyncSnapshot snapshot) {
             if (!snapshot.hasData) {
               return Center(
@@ -49,10 +43,16 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout>
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(
-                            Icons.arrow_back,
-                            size: 25,
-                            color: Colors.grey,
+                          InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => BookingScreen()));
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              size: 25,
+                              color: Colors.grey,
+                            ),
                           ),
                         ],
                       ),
@@ -108,7 +108,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout>
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: CarouselImage(
-                        imageadd: [
+                        image: [
                           api.image1,
                           api.image2,
                           api.image3,
@@ -397,257 +397,3 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout>
     );
   }
 }
-
-
-
-                      // 
-
-                  // ListView(
-                  //           children: [
-                  //             SizedBox(
-                  //               height: 2,
-                  //             ),
-                  //             Column(mainAxisSize: MainAxisSize.max, children: [
-                  //               Container(
-                  //                 width: MediaQuery.of(context).size.width,
-                  //                 height:
-                  //                     MediaQuery.of(context).size.height * 1,
-                  //                 decoration: BoxDecoration(
-                  //                   color: FlutterFlowTheme.of(context)
-                  //                       .primaryBtnText,
-                  //                 ),
-                  //                 child: Column(
-                  //                   mainAxisSize: MainAxisSize.max,
-                  //                   children: [
-                  //                     Container(
-                  //                       width:
-                  //                           MediaQuery.of(context).size.width,
-                  //                       height: 200,
-                  //                       decoration: BoxDecoration(
-                  //                         color: FlutterFlowTheme.of(context)
-                  //                             .primaryBtnText,
-                  //                       ),
-                  //                       child: Column(
-                  //                         mainAxisSize: MainAxisSize.max,
-                  //                         children: [
-                  //                           Container(
-                  //                             width: MediaQuery.of(context)
-                  //                                 .size
-                  //                                 .width,
-                  //                             height: 70,
-                  //                             decoration: BoxDecoration(
-                  //                               color:
-                  //                                   FlutterFlowTheme.of(context)
-                  //                                       .primaryBtnText,
-                  //                             ),
-                  //                             child: Row(
-                  //                               mainAxisSize: MainAxisSize.max,
-                  //                               children: [
-                  //                                 Align(
-                  //                                   alignment:
-                  //                                       AlignmentDirectional(
-                  //                                           -0.45, -1),
-                  //                                   child: Container(
-                  //                                     width: 50,
-                  //                                     height: 50,
-                  //                                     clipBehavior:
-                  //                                         Clip.antiAlias,
-                  //                                     decoration: BoxDecoration(
-                  //                                       shape: BoxShape.circle,
-                  //                                     ),
-                  //                                     child: Image.network(
-                  //                                       'https://tse2.mm.bing.net/th?id=OIP.oQct2AToyBsqQjjPzZp9AwHaLH&pid=Api&P=0',
-                  //                                       fit: BoxFit.fitWidth,
-                  //                                     ),
-                  //                                   ),
-                  //                                 ),
-                  //                                 Container(
-                  //                                   width: 135,
-                  //                                   height: 100,
-                  //                                   decoration: BoxDecoration(
-                  //                                     color: FlutterFlowTheme
-                  //                                             .of(context)
-                  //                                         .secondaryBackground,
-                  //                                   ),
-                  //                                   child: Column(
-                  //                                     mainAxisSize:
-                  //                                         MainAxisSize.max,
-                  //                                     children: [
-                  //                                       Align(
-                  //                                         alignment:
-                  //                                             AlignmentDirectional(
-                  //                                                 0.45, -1),
-                  //                                         child: SelectionArea(
-                  //                                             child: Text(
-                  //                                           'muhammed',
-                  //                                           style: FlutterFlowTheme
-                  //                                                   .of(context)
-                  //                                               .bodyText1
-                  //                                               .override(
-                  //                                                 fontFamily:
-                  //                                                     'Poppins',
-                  //                                                 fontSize: 18,
-                  //                                               ),
-                  //                                         )),
-                  //                                       ),
-                  //                                       Align(
-                  //                                         alignment:
-                  //                                             AlignmentDirectional(
-                  //                                                 1, 0),
-                  //                                         child: SelectionArea(
-                  //                                             child: Text(
-                  //                                           'sep 12 at 6:19 Am',
-                  //                                           style: FlutterFlowTheme
-                  //                                                   .of(context)
-                  //                                               .bodyText1
-                  //                                               .override(
-                  //                                                 fontFamily:
-                  //                                                     'Poppins',
-                  //                                                 color: Color(
-                  //                                                     0xFFCDCDCD),
-                  //                                               ),
-                  //                                         )),
-                  //                                       ),
-                  //                                     ],
-                  //                                   ),
-                  //                                 ),
-                  //                                 Container(
-                  //                                   width: 100,
-                  //                                   height: 100,
-                  //                                   decoration: BoxDecoration(
-                  //                                     color: FlutterFlowTheme
-                  //                                             .of(context)
-                  //                                         .secondaryBackground,
-                  //                                   ),
-                  //                                   child: Column(
-                  //                                     mainAxisSize:
-                  //                                         MainAxisSize.max,
-                  //                                     children: [
-                  //                                       Container(
-                  //                                         width: 100,
-                  //                                         height: 28,
-                  //                                         decoration:
-                  //                                             BoxDecoration(
-                  //                                           color: FlutterFlowTheme
-                  //                                                   .of(context)
-                  //                                               .secondaryBackground,
-                  //                                         ),
-                  //                                         child: Align(
-                  //                                           alignment:
-                  //                                               AlignmentDirectional(
-                  //                                                   -1, 0.25),
-                  //                                           child:
-                  //                                               SelectionArea(
-                  //                                                   child: Text(
-                  //                                             'recommends',
-                  //                                             style: FlutterFlowTheme
-                  //                                                     .of(context)
-                  //                                                 .bodyText1,
-                  //                                           )),
-                  //                                         ),
-                  //                                       ),
-                  //                                       Container(
-                  //                                         width: 100,
-                  //                                         height: 30,
-                  //                                         decoration:
-                  //                                             BoxDecoration(
-                  //                                           color: FlutterFlowTheme
-                  //                                                   .of(context)
-                  //                                               .secondaryBackground,
-                  //                                         ),
-                  //                                         child: Align(
-                  //                                           alignment:
-                  //                                               AlignmentDirectional(
-                  //                                                   -1, -1),
-                  //                                           child: FaIcon(
-                  //                                             FontAwesomeIcons
-                  //                                                 .globeAfrica,
-                  //                                             color: Color(
-                  //                                                 0xFFCDCDCD),
-                  //                                             size: 20,
-                  //                                           ),
-                  //                                         ),
-                  //                                       ),
-                  //                                     ],
-                  //                                   ),
-                  //                                 ),
-                  //                                 Container(
-                  //                                   width: 100,
-                  //                                   height: 100,
-                  //                                   decoration: BoxDecoration(
-                  //                                     color: FlutterFlowTheme
-                  //                                             .of(context)
-                  //                                         .secondaryBackground,
-                  //                                   ),
-                  //                                   child: Column(
-                  //                                     mainAxisSize:
-                  //                                         MainAxisSize.max,
-                  //                                     children: [
-                  //                                       Container(
-                  //                                         width: 100,
-                  //                                         height: 30,
-                  //                                         decoration:
-                  //                                             BoxDecoration(
-                  //                                           color: FlutterFlowTheme
-                  //                                                   .of(context)
-                  //                                               .secondaryBackground,
-                  //                                         ),
-                  //                                         child: Align(
-                  //                                           alignment:
-                  //                                               AlignmentDirectional(
-                  //                                                   1, -1),
-                  //                                           child:
-                  //                                               SelectionArea(
-                  //                                                   child: Text(
-                  //                                             'Windfarm',
-                  //                                             style: FlutterFlowTheme
-                  //                                                     .of(context)
-                  //                                                 .bodyText1
-                  //                                                 .override(
-                  //                                                   fontFamily:
-                  //                                                       'Poppins',
-                  //                                                   fontSize:
-                  //                                                       18,
-                  //                                                 ),
-                  //                                           )),
-                  //                                         ),
-                  //                                       ),
-                  //                                       Align(
-                  //                                         alignment:
-                  //                                             AlignmentDirectional(
-                  //                                                 1, -1),
-                  //                                         child: Icon(
-                  //                                           Icons
-                  //                                               .keyboard_control_rounded,
-                  //                                           color: Color(
-                  //                                               0xFFCDCDCD),
-                  //                                           size: 25,
-                  //                                         ),
-                  //                                       ),
-                  //                                     ],
-                  //                                   ),
-                  //                                 ),
-                  //                               ],
-                  //                             ),
-                  //                           ),
-                  //                           SelectionArea(
-                  //                               child: Text(
-                  //                             'Who was Dick Whittington? Watch this story, one of our \'British tales\' videos about characters and people from British history, to find out!',
-                  //                             maxLines: 6,
-                  //                             style:
-                  //                                 FlutterFlowTheme.of(context)
-                  //                                     .bodyText1
-                  //                                     .override(
-                  //                                       fontFamily: 'Open Sans',
-                  //                                       fontSize: 17,
-                  //                                     ),
-                  //                           )),
-                  //                         ],
-                  //                       ),
-                  //                     ),
-                  //                   ],
-                  //                 ),
-                  //               )
-                  //             ])
-                  //           ],
-                  //         ),

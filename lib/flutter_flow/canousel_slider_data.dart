@@ -5,16 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:watatrip/flutter_flow/image.dart';
 
 class CarouselImage extends StatelessWidget {
-  List<String> imageadd;
+  List<String> image;
   CarouselImage({
     Key? key,
-    required this.imageadd,
+    required this.image,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
-      items: imageadd.map(
+      items: image.map(
         (i) {
           return Builder(
             builder: (BuildContext context) => Image.network(
