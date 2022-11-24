@@ -17,7 +17,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout>
     with TickerProviderStateMixin {
   TabController? _tabController;
 
-  final String mapimage =
+  final String Mapimage =
       'https://s3-alpha-sig.figma.com/img/d7fa/8e59/2d1221b1a64cfe02be9823f9107db13e?Expires=1669593600&Signature=BDr~bp9zuTR8GUWxKhwu2fNDOUa6xQmYTSLNCIux9hCpf51fjtVT8Fkroa4QAx1egdnvfHOSjroC9dKAxiK3KPNjg-mouNT2MzOYmlMVoNB8HyIXUQ~Bug2i4eGvA-Rs7aICXIwTDc~~dkL7CgM5QcF13b-pFptFat0vrTpLnRfdMQ8mKUW~rQalJp7h2PiGeyDyIzGFDeduNO0Tk5DpXJHT8mxb6JZHrNF~udhEGhy2nlcLgUa5svNTCoG-dp~wZUFJlbtZ8pBBZhRHuaAAt8cYCLu4RGNv1Rh65CXccnvZ2oGDRgAiN7Qjppf5Ga6s3sv~DAxiHmuRdAoSQteMFw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA';
 
   @override
@@ -33,7 +33,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout>
                 child: CircularProgressIndicator(),
               );
             } else {
-              Apidata api = snapshot.data!;
+              Datum api = snapshot.data!;
               return Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Column(
@@ -324,7 +324,9 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout>
                                                             Uri.parse(api.fb));
                                                       },
                                                       child: Text(
-                                                        api.fb,
+                                                        api.fb != null
+                                                            ? api.fb
+                                                            : "",
                                                         maxLines: 2,
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -365,7 +367,7 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout>
                                         await launchUrl(Uri.parse(api.mapLink));
                                       },
                                       child: Image.network(
-                                        mapimage,
+                                        Mapimage,
                                         fit: BoxFit.fill,
                                       ),
                                     ),
