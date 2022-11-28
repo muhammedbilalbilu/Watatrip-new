@@ -186,8 +186,8 @@ class _BookingConformedState extends State<BookingConformed> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
-              child: Image.network(
-                'https://s3-alpha-sig.figma.com/img/e9a2/1909/d74a340db186455bbd11d2289637a677?Expires=1669593600&Signature=S8~04UZtUsDGMSaTs~QS-EaOOB0NaIU7Xe6snAb3fcZVMY5PCFdlEl8qgyfG8jqym8W9lp4i0BXYve5CmX3U2wupclt4R~39lIZ0l9Ctg0xdh~yZwAk2DMI0BhluTGDBJzNnWmv8Noc3UcAwtJhxZ5eIt8HhLpS6LDwjt3K6Pk0upnTIS-PAVx7GamYCBkFqOEj7eUKUjLGCB2ueCuNYcEz4GhewNDBxMJOQytcO6VG4ym~ahzwjKtenmxgDKYIQqdTTuQmXWqLLZXuBcH7n42Lm1rIc~TZn~hnyeMxG9yv5XYqvHE8Ysf-i-NfEoKAikJQDfbc6Ar3ZJQH55sPFpw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+              child: Image.asset(
+                'assets/Watatrip-image.jpg',
                 width: 296,
                 height: 250,
                 fit: BoxFit.cover,

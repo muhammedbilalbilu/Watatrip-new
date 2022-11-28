@@ -2,7 +2,6 @@
 //
 //     final welcome = welcomeFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
@@ -60,8 +59,8 @@ class Datum {
   int id;
   String name;
   String image1;
-  dynamic image2;
-  dynamic image3;
+  String image2;
+  String image3;
   String image4;
   String image5;
   String logo;
@@ -80,13 +79,13 @@ class Datum {
         image1: json["image1"],
         image2: json["image2"],
         image3: json["image3"],
-        image4: json["image4"] == null ? "" : json["image4"],
-        image5: json["image5"] == null ? "" : json["image5"],
+        image4: json["image4"],
+        image5: json["image5"],
         logo: json["logo"],
         address: json["address"],
         contactNumber: json["contact_number"],
-        fb: json["fb"] == null ? "" : json["fb"],
-        details: json["details"] == null ? "" : json["details"],
+        fb: json["fb"],
+        details: json["details"],
         mapLink: json["map_link"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
@@ -99,13 +98,13 @@ class Datum {
         "image1": image1,
         "image2": image2,
         "image3": image3,
-        "image4": image4 == null ? null : image4,
-        "image5": image5 == null ? null : image5,
+        "image4": image4,
+        "image5": image5,
         "logo": logo,
         "address": address,
         "contact_number": contactNumber,
-        "fb": fb == null ? null : fb,
-        "details": details == null ? null : details,
+        "fb": fb,
+        "details": details,
         "map_link": mapLink,
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
