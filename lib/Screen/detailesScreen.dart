@@ -20,6 +20,11 @@ class _DetailScreenState extends State<DetailScreen>
 
   @override
   Widget build(BuildContext context) {
+    void navigator() {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: ((context) => BookingScreen())));
+    }
+
     TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       backgroundColor: Color(0xFFF1F3F5),
@@ -38,7 +43,7 @@ class _DetailScreenState extends State<DetailScreen>
               List<Datum> api = snapshot.data!;
               // 9 call Listview.builder
               return Padding(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: EdgeInsets.all(5.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -46,15 +51,15 @@ class _DetailScreenState extends State<DetailScreen>
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => BookingScreen()));
-                              },
-                              child: Icon(
-                                Icons.arrow_back,
-                                size: 25,
-                                color: Colors.grey,
+                            Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: InkWell(
+                                onTap: navigator,
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  size: 25,
+                                  color: Colors.grey,
+                                ),
                               ),
                             ),
                           ],
@@ -112,11 +117,11 @@ class _DetailScreenState extends State<DetailScreen>
                         padding: const EdgeInsets.all(8.0),
                         child: CarouselImage(
                           image: [
-                            'https://images.pexels.com/photos/1103808/pexels-photo-1103808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                            'https://images.pexels.com/photos/1757363/pexels-photo-1757363.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                            'https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                            'https://images.pexels.com/photos/1234035/pexels-photo-1234035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                            'https://images.pexels.com/photos/889930/pexels-photo-889930.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                            widget.snap.image1,
+                            widget.snap.image2,
+                            widget.snap.image3,
+                            widget.snap.image4,
+                            widget.snap.image5,
                           ],
                         ),
                       ),
@@ -167,7 +172,7 @@ class _DetailScreenState extends State<DetailScreen>
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.network(
-                                      'https://s3-alpha-sig.figma.com/img/20e7/8610/4d333c30e10913eecf0244ba2303e1c3?Expires=1670803200&Signature=WMdNwC7S3AdO-fIky6sDjHimzabhymBLDrGKvtZQkWXtBBKYuzbZjARXp1ZrdZW3voU~mIEpqj0ChOSy02EszBkEls8A1WbrZiPesWdrApqp0xXKNY5C4HBXJeLAM8YB5lT2njcoAneVrrbCb9CKe-53x1IEs9G1gU46q4tNsxK7nGz~U5CMbQb25wtcxkdf0BY23DEiCevSmdjIDi3SCcPY675zUlSwrYx8GAdp5Yn1kWd14LPDDawfOyh-TAmrPl7SrI6aRSL~YPwZ9jSPGDO3SrLU1dVxiG8ZcDMOxkcU9Col7P18rMcSwPhMI3JXvWmguoWShFEgrthdgFnOcQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+                                      widget.snap.logo,
                                     ).image,
                                   ),
                                 ),
@@ -421,3 +426,4 @@ class _DetailScreenState extends State<DetailScreen>
     );
   }
 }
+

@@ -1,153 +1,302 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:watatrip/Screen/searchScreendetailes.dart';
+import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
 
-// import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
+class SearchScreenWidget extends StatefulWidget {
+  const SearchScreenWidget({Key? key}) : super(key: key);
 
-// import 'detailesScreen.dart';
+  @override
+  _SearchScreenWidgetState createState() => _SearchScreenWidgetState();
+}
 
-// class Search extends StatefulWidget {
-//   @override
-//   State<Search> createState() => _SearchState();
-// }
+class _SearchScreenWidgetState extends State<SearchScreenWidget> {
+  List<Map<String, dynamic>> _allPlace = [];
+  List<Map<String, dynamic>> _allPlacedata = [];
+  bool isLodging = false;
+  var jsondata;
+  var mapdata;
+  getdata() async {
+    isLodging = true;
+    var response =
+        await http.get(Uri.parse('https://demo2.conscor.com/api/activity/1'));
 
-// TextEditingController textController = TextEditingController();
+    if (response.statusCode == 200) {
+      jsondata = jsonDecode(response.body);
+      mapdata = jsondata['Data'];
+      print(mapdata);
+    } else {
+      print('error');
+    }
+    for (var i = 0; i < mapdata!.length; i++) {
+      _allPlace.add({
+        "name": mapdata![i]["name"],
+        "id": mapdata![i]["id"],
+        "name": mapdata![i]["name"],
+        "image1": mapdata![i]["image1"],
+        "image2": mapdata![i]["image2"],
+        "image3": mapdata![i]["image3"],
+        "image4": mapdata![i]["image4"],
+        "image5": mapdata![i]["image5"],
+        "logo": mapdata![i]["logo"],
+        "address": mapdata![i]["address"],
+        "contact_number": mapdata![i]["contact_number"],
+        "fb": mapdata![i]["fb"],
+        "details": mapdata![i]["details"],
+        "map_link": mapdata![i]["map_link"],
+        "price": mapdata![i]["price"],
+        "offer_price": mapdata![i]["offer_price"],
+      });
+    }
+    setState(() {
+      _allPlacedata = _allPlace;
+    });
+    isLodging = false;
+  }
 
-// class _SearchState extends State<Search> {
-//   final List<Map<String, dynamic>> _allUsers = [
-//     {"id": 1, "name": "Winfarm Nature Escape", "age": 'Outdoor/Campsit'},
-//   ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getdata();
+    textController = TextEditingController();
+  }
 
-//   // This list holds the data for the list view
-//   List<Map<String, dynamic>> _foundUsers = [];
-//   @override
-//   initState() {
-//     _foundUsers = _allUsers;
-//     super.initState();
-//   }
+  void updatelist(String valu) {
+    if (valu.isEmpty) {
+      _allPlacedata = _allPlace;
+    } else {
+      setState(() {
+        _allPlacedata = _allPlace
+            .where((element) => element['name']
+                .toString()
+                .toLowerCase()
+                .contains(valu.toString().toLowerCase()))
+            .toList();
+      });
+    }
+  }
 
-//   // This function is called whenever the text field changes
-//   void _runFilter(String enteredKeyword) {
-//     List<Map<String, dynamic>> results = [];
-//     if (enteredKeyword.isEmpty) {
-//       // if the search field is empty or only contains white-space, we'll display all users
-//       results = _allUsers;
-//     } else {
-//       results = _allUsers
-//           .where((user) =>
-//               user["name"].toLowerCase().contains(enteredKeyword.toLowerCase()))
-//           .toList();
-//       // we use the toLowerCase() method to make it case-insensitive
-//     }
+  TextEditingController? textController;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
-//     setState(() {
-//       _foundUsers = results;
-//     });
-//   }
+  @override
+  void dispose() {
+    textController?.dispose();
+    super.dispose();
+  }
 
-//   void navigation() {
-//     Navigator.of(context)
-//         .push(MaterialPageRoute(builder: (context) => DetailScreen()));
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: FlutterFlowTheme.of(context).lineColor,
-//       body: SafeArea(
-//         child: Column(
-//           children: [
-//             Container(
-//               height: 100,
-//               color: Colors.white,
-//               child: Padding(
-//                 padding: const EdgeInsets.only(left: 10, right: 10, top: 30),
-//                 child: TextFormField(
-//                     controller: textController,
-//                     autofocus: true,
-//                     obscureText: false,
-//                     decoration: InputDecoration(
-//                       hintText: 'Search ',
-//                       hintStyle: FlutterFlowTheme.of(context).bodyText2,
-//                       enabledBorder: UnderlineInputBorder(
-//                         borderSide: BorderSide(
-//                           color: FlutterFlowTheme.of(context).lineColor,
-//                           width: 1,
-//                         ),
-//                         borderRadius: BorderRadius.circular(13),
-//                       ),
-//                       focusedBorder: UnderlineInputBorder(
-//                         borderSide: BorderSide(
-//                           color: FlutterFlowTheme.of(context).lineColor,
-//                           width: 1,
-//                         ),
-//                         borderRadius: BorderRadius.circular(13),
-//                       ),
-//                       errorBorder: UnderlineInputBorder(
-//                         borderSide: BorderSide(
-//                           color: Color(0xFFF10606),
-//                           width: 1,
-//                         ),
-//                         borderRadius: BorderRadius.circular(13),
-//                       ),
-//                       focusedErrorBorder: UnderlineInputBorder(
-//                         borderSide: BorderSide(
-//                           color: Color(0xFFF10606),
-//                           width: 1,
-//                         ),
-//                         borderRadius: BorderRadius.circular(13),
-//                       ),
-//                       filled: true,
-//                       fillColor: FlutterFlowTheme.of(context).lineColor,
-//                     ),
-//                     style: FlutterFlowTheme.of(context).bodyText1,
-//                     onChanged: (value) => _runFilter(value)),
-//               ),
-//             ),
-//             Container(
-//               height: 2,
-//               width: double.infinity,
-//               color: FlutterFlowTheme.of(context).lineColor,
-//             ),
-//             SizedBox(
-//               height: 0,
-//             ),
-//             Expanded(
-//               child: _foundUsers.isNotEmpty
-//                   ? ListView.builder(
-//                       itemCount: _foundUsers.length,
-//                       itemBuilder: (context, index) {
-//                         key:
-//                         ValueKey(_foundUsers[index]["id"]);
-
-//                         return Padding(
-//                           padding: const EdgeInsets.only(left: 10, right: 10),
-//                           child: ListTile(
-//                             title: GestureDetector(
-//                               onTap: navigation,
-//                               child: Text(
-//                                 _foundUsers[index]['name'],
-//                                 style: TextStyle(
-//                                     fontSize: 23,
-//                                     fontWeight: FontWeight.w500,
-//                                     fontFamily: 'Open Sans'),
-//                               ),
-//                             ),
-//                             subtitle: Text(_foundUsers[index]['age'].toString(),
-//                                 style: TextStyle(
-//                                     fontSize: 16,
-//                                     fontWeight: FontWeight.w500,
-//                                     fontFamily: 'Open Sans')),
-//                           ),
-//                         );
-//                       },
-//                     )
-//                   : Text(
-//                       'No results found',
-//                       style: TextStyle(fontSize: 24),
-//                     ),
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 1,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(-0.1, -0.5),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.05, 0.2),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: TextFormField(
+                                controller: textController,
+                                autofocus: true,
+                                obscureText: false,
+                                onChanged: (value) {
+                                  updatelist(value);
+                                },
+                                decoration: InputDecoration(
+                                  hintText: 'Search ',
+                                  hintStyle:
+                                      FlutterFlowTheme.of(context).bodyText2,
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .lineColor,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(13),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: FlutterFlowTheme.of(context)
+                                          .lineColor,
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(13),
+                                  ),
+                                  errorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFFF10606),
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(13),
+                                  ),
+                                  focusedErrorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFFF10606),
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(13),
+                                  ),
+                                  filled: true,
+                                  fillColor:
+                                      FlutterFlowTheme.of(context).lineColor,
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height * 1,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFE5E5E5),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: MediaQuery.of(context).size.height,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFE5E5E5),
+                                  ),
+                                  child: isLodging
+                                      ? Center(
+                                          child: CircularProgressIndicator(),
+                                        )
+                                      : _allPlacedata.isNotEmpty
+                                          ? ListView.builder(
+                                              itemCount: _allPlacedata.length,
+                                              itemBuilder: (context, index) =>
+                                                  Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(10, 10, 10, 10),
+                                                child: Container(
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  height: 40,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                  ),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      GestureDetector(
+                                                        onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                                                            builder: (context) => SearchDetailScreen(
+                                                                mapLink: _allPlace[index][
+                                                                    'map_link'],
+                                                                details: _allPlace[index]
+                                                                    ['details'],
+                                                                fb: _allPlace[index]
+                                                                    ['fb'],
+                                                                contactNumber: _allPlace[index][
+                                                                    'contact_number'],
+                                                                address: _allPlace[index]
+                                                                    ['address'],
+                                                                logo: _allPlace[index]
+                                                                    ['logo'],
+                                                                name: _allPlace[index]
+                                                                    ['name'],
+                                                                image1: _allPlace[index]['image1'],
+                                                                image2: _allPlace[index]['image2'],
+                                                                image3: _allPlace[index]['image3'],
+                                                                image4: _allPlace[index]['image4'],
+                                                                image5: _allPlace[index]['image5']))),
+                                                        child: Container(
+                                                          width: MediaQuery.of(
+                                                                  context)
+                                                              .size
+                                                              .width,
+                                                          height: 40,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFFE5E5E5),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    -1, 1),
+                                                            child: Text(
+                                                              _allPlacedata[
+                                                                      index]
+                                                                  ['name'],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Open Sans',
+                                                                    fontSize:
+                                                                        23,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              padding: EdgeInsets.zero,
+                                              scrollDirection: Axis.vertical,
+                                            )
+                                          : Center(
+                                              child: Text(
+                                                'Not found',
+                                                style: TextStyle(
+                                                    fontFamily: 'Open Sans',
+                                                    fontSize: 23),
+                                              ),
+                                            ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

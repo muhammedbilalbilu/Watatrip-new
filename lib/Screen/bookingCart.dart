@@ -162,30 +162,38 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.55, 1),
+                                                          0.0, 0),
                                                   child: Text(
-                                                    '**** **** ****',
+                                                    '●●●● ●●●● ●●●●',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText1
                                                         .override(
                                                           fontFamily:
                                                               'Open Sans',
-                                                          fontSize: 25,
+                                                          fontSize: 21,
                                                         ),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                          Text(
-                                            '6212',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Open Sans',
-                                                  fontSize: 18,
-                                                ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 70, top: 5),
+                                            child: Container(
+                                              child: Text(
+                                                '6212',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily:
+                                                              'Open Sans',
+                                                          fontSize: 15,
+                                                        ),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -199,7 +207,10 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                           .primaryBtnText,
                                     ),
                                     child: Row(
-                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Expanded(
                                           child: Container(
@@ -218,11 +229,11 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                               ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.6, -1),
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 20, top: 5),
                                                 child: Text(
-                                                  ' Expiration: 05/28 Cart 1',
+                                                  'Expiration: 05/28 Cart 1',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyText1
@@ -236,19 +247,6 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment: Alignment.topRight,
-                                          child: Text(
-                                            '(default)',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Open Sans',
-                                                  color: Color(0xFFFFB100),
-                                                  fontSize: 14,
-                                                ),
                                           ),
                                         ),
                                       ],
@@ -287,7 +285,7 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).lineColor,
                                 image: DecorationImage(
-                                  fit: BoxFit.fitWidth,
+                                  fit: BoxFit.contain,
                                   image: Image.asset(
                                     'assets/card_logo.png',
                                   ).image,
@@ -340,30 +338,38 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.55, 1),
+                                                          0.0, 0),
                                                   child: Text(
-                                                    '**** **** ****',
+                                                    '●●●● ●●●● ●●●●',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText1
                                                         .override(
                                                           fontFamily:
                                                               'Open Sans',
-                                                          fontSize: 25,
+                                                          fontSize: 21,
                                                         ),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                          Text(
-                                            '6212',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Open Sans',
-                                                  fontSize: 18,
-                                                ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 70, top: 5),
+                                            child: Container(
+                                              child: Text(
+                                                '7590',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily:
+                                                              'Open Sans',
+                                                          fontSize: 15,
+                                                        ),
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -377,7 +383,10 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                           .primaryBtnText,
                                     ),
                                     child: Row(
-                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Expanded(
                                           child: Container(
@@ -396,11 +405,11 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                               ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.6, -1),
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 20, top: 5),
                                                 child: Text(
-                                                  ' Expiration: 05/28 Cart 1',
+                                                  'Expiration: 05/28 Cart 1',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyText1
@@ -413,23 +422,6 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                                       ),
                                                 ),
                                               ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment: Alignment.topRight,
-                                          child: Container(
-                                            child: Text(
-                                              '(default)',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Open Sans',
-                                                        color:
-                                                            Color(0xFFFFB100),
-                                                        fontSize: 14,
-                                                      ),
                                             ),
                                           ),
                                         ),

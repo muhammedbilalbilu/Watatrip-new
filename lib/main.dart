@@ -1,14 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:watatrip/Screen/Login.dart';
+import 'package:watatrip/Screen/Tour%20Offer%20Booking%20Review..dart';
 import 'package:watatrip/Screen/bookingCart.dart';
-import 'package:watatrip/Screen/bookingScreen.dart';
-import 'package:watatrip/Screen/detailesScreen.dart';
-
 import 'package:watatrip/Screen/test.dart';
 
-import 'Screen/homePage.dart';
+import 'package:watatrip/Screen/verifyAccount.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -35,7 +32,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.light, useMaterial3: true),
-      home: BookingScreen(), //MobileScreenLayout(),
+      home: TourOfferJoinActivityWidget(), //MobileScreenLayout(),
     );
   }
 }

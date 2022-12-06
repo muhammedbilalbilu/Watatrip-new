@@ -863,7 +863,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                 AlignmentDirectional(-1, -0.05),
                                             child: SelectionArea(
                                                 child: Text(
-                                              ' Connect your social accounts   ',
+                                              ' Connect your social accounts ',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .subtitle1,

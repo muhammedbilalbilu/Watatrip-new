@@ -404,17 +404,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           SelectionArea(
                               child: InkWell(
                             onTap: Login,
-                            child: Text(
-                              'Login',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Open Sans',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBtnText,
-                                    fontSize: 20,
+                            child: _isLoading
+                                ? Center(
+                                    child: CircularProgressIndicator(),
+                                  )
+                                : Text(
+                                    'Login',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Open Sans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          fontSize: 20,
+                                        ),
                                   ),
-                            ),
                           )),
                         ],
                       ),

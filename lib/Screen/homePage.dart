@@ -1,11 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:watatrip/Screen/bookingScreen.dart';
-import 'package:watatrip/Screen/detailesScreen.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
-
-import 'package:http/http.dart' as http;
 
 import '../flutter_flow/flutter_flow_icon_button.dart';
 

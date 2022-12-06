@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:watatrip/Screen/bookinConfrome.dart';
+import 'package:watatrip/Screen/TourOfferPage3.dart';
 import 'package:watatrip/Screen/detailesScreen.dart';
+import 'package:watatrip/Screen/homePage.dart';
 import 'package:watatrip/backend/ApiCall.dart';
 import 'package:watatrip/backend/Apidata.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
@@ -15,113 +16,22 @@ class BookingScreen extends StatefulWidget {
 class _BookingScreenState extends State<BookingScreen> {
   @override
   Widget build(BuildContext context) {
+    void navigator() {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: ((context) => HomePageWidget())));
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(30),
-          child: Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 20,
-                      left: 5,
-                    ),
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: FlutterFlowTheme.of(context).lineColor,
-                      size: 30,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
-                    child: Container(
-                      width: 200,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFF10606),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.7, 0.05),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Text(
-                                'Ho Chi Minh',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                      fontSize: 22,
-                                    ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                            child: Icon(
-                              Icons.keyboard_arrow_down,
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                              size: 30,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 5,
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(-0.15, -0.1),
-                      child: Text(
-                        'CHANGE',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: FlutterFlowTheme.of(context).lineColor,
-                              fontSize: 16,
-                            ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: AlignmentDirectional(-0.1, -1),
-                    child: Text(
-                      'Sun,4 Oct 2020, 1 Night(s), 1 Rooms',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                          ),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
+        leading: IconButton(
+            onPressed: () {
+              navigator();
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.grey,
+            )),
       ),
       //  6 call FutureBuilder
       body: FutureBuilder(
@@ -150,7 +60,7 @@ class _BookingScreenState extends State<BookingScreen> {
                                       ))),
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                             child: Container(
                               width: MediaQuery.of(context).size.width,
                               height: 150,
@@ -159,7 +69,7 @@ class _BookingScreenState extends State<BookingScreen> {
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.network(
-                                    'https://s3-alpha-sig.figma.com/img/7cc4/38c0/6c4cc08ae54a1ac47ce1c24b6c67b59b?Expires=1670198400&Signature=A-6-fyiMrRpcAtM0JmSWpINVFKCniOHWt9dvvUjmWcIXmnqqJqPM5lE-yecfWLXYsaYWZEffHLhZ8S33mcRNpdiufQRzmG50TtgZ0rHGZqdwPvuKNSyL8izN9oDO3wfhz-8NP2MOOsP-CsQne7MZ7twaXNjJ89VkwpSUk5CVo5d2NJhZX2jMnAMEadHS0mNPej6RipfKegGGrXRf6toAs1ychgj7aIpwvJxFD~jpqae5qbPVeBTIv86Ml5OToqnq2Ofp16dcUWlygiBoFjvzk~fjMyyINKdZo6OKYaNlbv4ukuPbxvoe9dfRXpeQHmVT12bCV388BjpzEG1jVayotw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+                                    api[index].image1,
                                   ).image,
                                 ),
                                 borderRadius: BorderRadius.only(
@@ -398,10 +308,10 @@ class _BookingScreenState extends State<BookingScreen> {
                                                       .primaryBtnText,
                                             ),
                                             child: Align(
-                                              alignment:
-                                                  AlignmentDirectional(-1, -1),
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, -1),
                                               child: Text(
-                                                'USD67',
+                                                api[index].offerPrice,
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyText1
@@ -427,9 +337,9 @@ class _BookingScreenState extends State<BookingScreen> {
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(-1, -1),
+                                                AlignmentDirectional(-2, -1),
                                             child: Text(
-                                              'USD67',
+                                              api[index].price,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyText1
@@ -466,7 +376,10 @@ class _BookingScreenState extends State<BookingScreen> {
                                                   Navigator.of(context).push(
                                                       MaterialPageRoute(
                                                           builder: (context) =>
-                                                              BookingConformed()));
+                                                              TourOfferPage(
+                                                                apidata:
+                                                                    api[index],
+                                                              )));
                                                 },
                                                 text: 'BOOK',
                                                 options: FFButtonOptions(

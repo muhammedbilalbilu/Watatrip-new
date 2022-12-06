@@ -51,6 +51,8 @@ class Datum {
     required this.fb,
     required this.details,
     required this.mapLink,
+    required this.price,
+    required this.offerPrice,
     required this.createdAt,
     required this.updatedAt,
     required this.activityTypeId,
@@ -69,6 +71,8 @@ class Datum {
   String fb;
   String details;
   String mapLink;
+  String price;
+  String offerPrice;
   DateTime createdAt;
   DateTime updatedAt;
   String activityTypeId;
@@ -87,6 +91,8 @@ class Datum {
         fb: json["fb"],
         details: json["details"],
         mapLink: json["map_link"],
+        price: json["price"],
+        offerPrice: json["offer_price"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
         activityTypeId: json["activity_type_id"],
@@ -106,6 +112,8 @@ class Datum {
         "fb": fb,
         "details": details,
         "map_link": mapLink,
+        "price": price,
+        "offer_price": offerPrice,
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
         "activity_type_id": activityTypeId,

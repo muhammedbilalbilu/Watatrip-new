@@ -2,8 +2,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import 'package:watatrip/flutter_flow/image.dart';
-
 class CarouselImage extends StatelessWidget {
   List<String> image;
   CarouselImage({
