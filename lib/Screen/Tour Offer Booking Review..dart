@@ -1,8 +1,18 @@
-import '../flutter_flow/flutter_flow_theme.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../flutter_flow/flutter_flow_theme.dart';
+
 class TourerBookingWidget extends StatefulWidget {
-  const TourerBookingWidget({Key? key}) : super(key: key);
+  List name;
+  List email;
+  List phone;
+  TourerBookingWidget({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.phone,
+  }) : super(key: key);
 
   @override
   _TourerBookingWidgetState createState() => _TourerBookingWidgetState();

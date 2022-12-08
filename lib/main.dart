@@ -2,10 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:watatrip/Screen/Tour%20Offer%20Booking%20Review..dart';
+import 'package:watatrip/Screen/TourOfferJoinActivityWidget.dart';
 import 'package:watatrip/Screen/bookingCart.dart';
-import 'package:watatrip/Screen/test.dart';
+import 'package:watatrip/Screen/signUp.dart';
 
 import 'package:watatrip/Screen/verifyAccount.dart';
+import 'package:watatrip/widget/FabBar.dart';
+import 'package:watatrip/widget/dart4.dart';
+
+import 'Screen/test.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
