@@ -1,31 +1,24 @@
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
-class VerifyAccountWidget extends StatefulWidget {
-  const VerifyAccountWidget({Key? key}) : super(key: key);
-
+class VerifyAccount extends StatefulWidget {
   @override
-  _VerifyAccountWidgetState createState() => _VerifyAccountWidgetState();
+  State<VerifyAccount> createState() => _VerifyAccountState();
 }
 
-class _VerifyAccountWidgetState extends State<VerifyAccountWidget> {
-  TextEditingController? pinCodeController;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
+class _VerifyAccountState extends State<VerifyAccount> {
   @override
   void initState() {
     super.initState();
     pinCodeController = TextEditingController();
   }
 
+  TextEditingController? pinCodeController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
