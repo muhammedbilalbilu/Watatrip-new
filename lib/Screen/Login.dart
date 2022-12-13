@@ -54,8 +54,8 @@ class _LoginScreenState extends State<LoginScreen> {
         _isLoading = false;
       });
       // navigate to the home screen
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomePageWidget()));
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
     } else {
       setState(() {
         _isLoading = false;

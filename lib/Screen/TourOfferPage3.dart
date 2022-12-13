@@ -12,11 +12,9 @@ class TourOfferPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void TourOfferJoinActivity() {
+    void TourOfferJoin() {
       Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => TourOfferJoinActivityWidget(
-                apidata: apidata,
-              )));
+          builder: (context) => TourOfferJoinActivity(apidata: apidata)));
     }
 
     return Scaffold(
@@ -306,7 +304,7 @@ class TourOfferPage extends StatelessWidget {
                                           color: Color(0xFFF10606),
                                         ),
                                         child: Text(
-                                          'Joiners for 8-10 people tour.Enjoye the outdoor and faclites in this day tour.',
+                                          'Joiners for 8-10 people tour.Enjoy the outdoor and faclites in this day tour.',
                                           maxLines: 3,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
@@ -654,7 +652,7 @@ class TourOfferPage extends StatelessWidget {
                                                 BorderRadius.circular(15),
                                           ),
                                           child: InkWell(
-                                            onTap: TourOfferJoinActivity,
+                                            onTap: TourOfferJoin,
                                             child: Align(
                                               alignment: AlignmentDirectional(
                                                   -0.00, 0),

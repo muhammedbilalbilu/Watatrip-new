@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:watatrip/Screen/homePage.dart';
 
@@ -18,13 +16,13 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar> {
   int currentTap = 0;
   List<Widget> screens = [
-    HomePageWidget(),
+    HomePage(),
     Home2(),
     Home3(),
     Home4(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = HomePageWidget();
+  Widget currentScreen = HomePage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +52,7 @@ class _BottomBarState extends State<BottomBar> {
                     minWidth: 80,
                     onPressed: () {
                       setState(() {
-                        currentScreen = HomePageWidget();
+                        currentScreen = HomePage();
                         currentTap = 1;
                       });
                     },

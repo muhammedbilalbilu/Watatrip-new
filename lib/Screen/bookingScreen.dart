@@ -5,8 +5,10 @@ import 'package:watatrip/Screen/detailesScreen.dart';
 import 'package:watatrip/Screen/homePage.dart';
 import 'package:watatrip/backend/ApiCall.dart';
 import 'package:watatrip/backend/Apidata.dart';
+import 'package:watatrip/backend/apiFirebase.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_widgets.dart';
+import 'package:watatrip/widgets/snakBar.dart';
 
 class BookingScreen extends StatefulWidget {
   @override
@@ -16,9 +18,11 @@ class BookingScreen extends StatefulWidget {
 class _BookingScreenState extends State<BookingScreen> {
   @override
   Widget build(BuildContext context) {
+    bool _isLoading;
+
     void navigator() {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: ((context) => HomePageWidget())));
+          MaterialPageRoute(builder: ((context) => HomePage())));
     }
 
     return Scaffold(
@@ -50,6 +54,25 @@ class _BookingScreenState extends State<BookingScreen> {
               child: ListView.builder(
                   itemCount: api.length,
                   itemBuilder: (context, index) {
+                    getApiData() async {
+                      print('workin');
+                      String res = await ApiFirebaseData().Apidataget(
+                          name: api[index].name,
+                          image1: api[index].image1,
+                          image2: api[index].image2,
+                          image3: api[index].image3,
+                          image4: api[index].image4,
+                          image5: api[index].image5,
+                          logo: api[index].logo,
+                          address: api[index].address,
+                          contactNumber: api[index].contactNumber,
+                          fb: api[index].fb,
+                          details: api[index].details,
+                          mapLink: api[index].mapLink,
+                          price: api[index].price,
+                          offerPrice: api[index].offerPrice);
+                    }
+
                     return Column(
                       children: [
                         GestureDetector(
@@ -381,6 +404,7 @@ class _BookingScreenState extends State<BookingScreen> {
                                                                 apidata:
                                                                     api[index],
                                                               )));
+                                                  getApiData();
                                                 },
                                                 text: 'BOOK',
                                                 options: FFButtonOptions(

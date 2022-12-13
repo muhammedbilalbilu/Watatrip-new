@@ -4,12 +4,12 @@ import 'package:watatrip/Screen/bookingCart.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 
-class TourerBookingWidget extends StatefulWidget {
+class TourerBookingScreen extends StatefulWidget {
   List name;
   List email;
   List phone;
   int index;
-  TourerBookingWidget(
+  TourerBookingScreen(
       {Key? key,
       required this.name,
       required this.email,
@@ -21,7 +21,7 @@ class TourerBookingWidget extends StatefulWidget {
   _TourerBookingWidgetState createState() => _TourerBookingWidgetState();
 }
 
-class _TourerBookingWidgetState extends State<TourerBookingWidget> {
+class _TourerBookingWidgetState extends State<TourerBookingScreen> {
   int num1 = 1;
 
   @override

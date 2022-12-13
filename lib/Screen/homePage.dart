@@ -5,15 +5,15 @@ import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
 import '../flutter_flow/flutter_flow_icon_button.dart';
 
-class HomePageWidget extends StatefulWidget {
+class HomePage extends StatefulWidget {
   final apidata;
-  const HomePageWidget({Key? key, this.apidata}) : super(key: key);
+  const HomePage({Key? key, this.apidata}) : super(key: key);
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _HomePageWidgetState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {

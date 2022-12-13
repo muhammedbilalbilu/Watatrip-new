@@ -7,10 +7,10 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class TourOfferJoinActivityWidget extends StatefulWidget {
+class TourOfferJoinActivity extends StatefulWidget {
   final apidata;
 
-  const TourOfferJoinActivityWidget({Key? key, required this.apidata})
+  const TourOfferJoinActivity({Key? key, required this.apidata})
       : super(key: key);
   @override
   _TourOfferJoinActivityWidgetState createState() =>
@@ -243,8 +243,7 @@ class form extends StatelessWidget {
   }
 }
 
-class _TourOfferJoinActivityWidgetState
-    extends State<TourOfferJoinActivityWidget> {
+class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
   static List<form> formlst = [];
 
   static List name = [];
@@ -310,7 +309,7 @@ class _TourOfferJoinActivityWidgetState
 
   void SignPage() {
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => TourerBookingWidget(
+        builder: (context) => TourerBookingScreen(
               email: formlst,
               name: formlst,
               phone: formlst,
@@ -331,7 +330,7 @@ class _TourOfferJoinActivityWidgetState
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => TourerBookingWidget(
+          builder: (context) => TourerBookingScreen(
                 name: name,
                 email: email,
                 phone: phone,

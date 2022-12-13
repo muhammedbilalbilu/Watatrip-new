@@ -26,9 +26,9 @@ class _DetailScreenState extends State<DetailScreen>
           .push(MaterialPageRoute(builder: ((context) => BookingScreen())));
     }
 
-    void SearchScreen() {
+    void SearchScreenNavigator() {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: ((context) => SearchScreenWidget())));
+          MaterialPageRoute(builder: ((context) => SearchScreen())));
     }
 
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -108,7 +108,7 @@ class _DetailScreenState extends State<DetailScreen>
                             Padding(
                               padding: const EdgeInsets.only(right: 10),
                               child: InkWell(
-                                onTap: SearchScreen,
+                                onTap: SearchScreenNavigator,
                                 child: Icon(
                                   Icons.search,
                                   size: 30,

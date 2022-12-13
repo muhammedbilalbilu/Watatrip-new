@@ -37,7 +37,7 @@ class _MyAppState extends State<MyApp> {
             // Checking if the snapshot has any data or not
             if (snapshot.hasData) {
               // if snapshot has data which means user is logged in then we check the width of screen and accordingly display the screen layout
-              return HomePageWidget();
+              return HomePage();
             } else if (snapshot.hasError) {
               return Center(
                 child: Text('${snapshot.error}'),

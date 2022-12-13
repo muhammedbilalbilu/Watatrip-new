@@ -4,12 +4,12 @@ import 'package:watatrip/Screen/searchScreendetailes.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 
-class SearchScreenWidget extends StatefulWidget {
+class SearchScreen extends StatefulWidget {
   @override
   _SearchScreenWidgetState createState() => _SearchScreenWidgetState();
 }
 
-class _SearchScreenWidgetState extends State<SearchScreenWidget> {
+class _SearchScreenWidgetState extends State<SearchScreen> {
   List<Map<String, dynamic>> _allPlace = [];
   List<Map<String, dynamic>> _allPlacedata = [];
   bool isLodging = false;

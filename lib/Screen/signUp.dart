@@ -81,8 +81,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         showSnackbar(context, 'Account created');
       });
       // navigate to the home screen
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomePageWidget()));
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => HomePage()));
     } else {
       setState(() {
         _isLoading = false;
