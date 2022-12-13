@@ -5,8 +5,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 
 class SearchScreenWidget extends StatefulWidget {
-  const SearchScreenWidget({Key? key}) : super(key: key);
-
   @override
   _SearchScreenWidgetState createState() => _SearchScreenWidgetState();
 }
@@ -215,7 +213,7 @@ class _SearchScreenWidgetState extends State<SearchScreenWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       GestureDetector(
-                                                        onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                                                        onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
                                                             builder: (context) => SearchDetailScreen(
                                                                 mapLink: _allPlace[index][
                                                                     'map_link'],

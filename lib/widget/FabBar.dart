@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:watatrip/Screen/homePage.dart';
 
 import 'package:watatrip/widget/1.dart';
 import 'package:watatrip/widget/2.dart';
@@ -17,22 +18,23 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar> {
   int currentTap = 0;
   List<Widget> screens = [
-    Home(),
+    HomePageWidget(),
     Home2(),
     Home3(),
     Home4(),
   ];
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = Home();
+  Widget currentScreen = HomePageWidget();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageStorage(bucket: bucket, child: currentScreen),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF0F5862),
         shape: CircleBorder(),
         child: Icon(
           Icons.add,
-          color: Color(0xFF0F5862),
+          color: Colors.white,
         ),
         onPressed: () {},
       ),
@@ -41,7 +43,7 @@ class _BottomBarState extends State<BottomBar> {
         shape: CircularNotchedRectangle(),
         notchMargin: 10,
         child: Container(
-          height: 50,
+          height: 45,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -52,7 +54,7 @@ class _BottomBarState extends State<BottomBar> {
                     minWidth: 80,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home2();
+                        currentScreen = HomePageWidget();
                         currentTap = 1;
                       });
                     },
@@ -73,7 +75,7 @@ class _BottomBarState extends State<BottomBar> {
                     minWidth: 100,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home();
+                        currentScreen = Home4();
                         currentTap = 0;
                       });
                     },
@@ -81,7 +83,7 @@ class _BottomBarState extends State<BottomBar> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.event_note_outlined,
+                          FontAwesomeIcons.calendarDays,
                           size: 30,
                           color: currentTap == 0
                               ? Color(0xFFAEAEAE)
@@ -100,7 +102,7 @@ class _BottomBarState extends State<BottomBar> {
                     minWidth: 10,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home3();
+                        currentScreen = Home();
                         currentTap = 2;
                       });
                     },
@@ -108,7 +110,7 @@ class _BottomBarState extends State<BottomBar> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          FontAwesomeIcons.message,
+                          FontAwesomeIcons.comments,
                           size: 30,
                           color: currentTap == 2
                               ? Color(0xFFAEAEAE)
@@ -121,7 +123,7 @@ class _BottomBarState extends State<BottomBar> {
                     minWidth: 80,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Home();
+                        currentScreen = Home2();
                         currentTap = 3;
                       });
                     },
@@ -129,7 +131,7 @@ class _BottomBarState extends State<BottomBar> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          FontAwesomeIcons.stethoscope,
+                          FontAwesomeIcons.circleUser,
                           size: 30,
                           color: currentTap == 3
                               ? Color(0xFFAEAEAE)

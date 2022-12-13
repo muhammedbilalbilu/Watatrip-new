@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:watatrip/Screen/bookingScreen.dart';
+import 'package:watatrip/Screen/searchScreen.dart';
 import 'package:watatrip/backend/ApiCall.dart';
 import 'package:watatrip/backend/Apidata.dart';
 import 'package:watatrip/flutter_flow/canousel_slider_data.dart';
@@ -23,6 +24,11 @@ class _DetailScreenState extends State<DetailScreen>
     void navigator() {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: ((context) => BookingScreen())));
+    }
+
+    void SearchScreen() {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: ((context) => SearchScreenWidget())));
     }
 
     TabController _tabController = TabController(length: 3, vsync: this);
@@ -101,10 +107,13 @@ class _DetailScreenState extends State<DetailScreen>
                             ),
                             Padding(
                               padding: const EdgeInsets.only(right: 10),
-                              child: Icon(
-                                Icons.search,
-                                size: 30,
-                                color: Color(0xFF0F5862),
+                              child: InkWell(
+                                onTap: SearchScreen,
+                                child: Icon(
+                                  Icons.search,
+                                  size: 30,
+                                  color: Color(0xFF0F5862),
+                                ),
                               ),
                             )
                           ],
@@ -426,4 +435,3 @@ class _DetailScreenState extends State<DetailScreen>
     );
   }
 }
-

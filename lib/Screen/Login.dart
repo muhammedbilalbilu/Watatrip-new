@@ -1,7 +1,9 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:watatrip/Screen/homePage.dart';
 import 'package:watatrip/Screen/signUp.dart';
+import 'package:watatrip/Screen/verifyAccount.dart';
 import 'package:watatrip/backend/auth.dart';
+import 'package:watatrip/widget/FabBar.dart';
 import 'package:watatrip/widgets/snakBar.dart';
 
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -66,6 +68,11 @@ class _LoginScreenState extends State<LoginScreen> {
   void SignPage() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => SignUpScreen()));
+  }
+
+  VerifyAccountWidget() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => VerifyAccount()));
   }
 
   @override
@@ -364,15 +371,18 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Align(
                               alignment: AlignmentDirectional(1, 0),
                               child: SelectionArea(
-                                  child: Text(
-                                'Forgot password?',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF2FB6A6),
-                                      fontSize: 17,
-                                    ),
+                                  child: InkWell(
+                                onTap: VerifyAccountWidget,
+                                child: Text(
+                                  'Forgot password?',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF2FB6A6),
+                                        fontSize: 17,
+                                      ),
+                                ),
                               )),
                             ),
                           ),

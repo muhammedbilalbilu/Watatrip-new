@@ -1,16 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:watatrip/Screen/Tour%20Offer%20Booking%20Review..dart';
-import 'package:watatrip/Screen/TourOfferJoinActivityWidget.dart';
-import 'package:watatrip/Screen/bookingCart.dart';
-import 'package:watatrip/Screen/signUp.dart';
-
-import 'package:watatrip/Screen/verifyAccount.dart';
-import 'package:watatrip/widget/FabBar.dart';
-import 'package:watatrip/widget/dart4.dart';
-
-import 'Screen/test.dart';
+import 'package:watatrip/Screen/Login.dart';
+import 'Screen/homePage.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -37,7 +30,31 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.light, useMaterial3: true),
-      home: TourOfferJoinActivityWidget(), //MobileScreenLayout(),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            // Checking if the snapshot has any data or not
+            if (snapshot.hasData) {
+              // if snapshot has data which means user is logged in then we check the width of screen and accordingly display the screen layout
+              return HomePageWidget();
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('${snapshot.error}'),
+              );
+            }
+          }
+
+          // means connection to future hasnt been made yet
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+          return LoginScreen();
+        },
+      ), //MobileScreenLayout(),
     );
   }
 }

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:watatrip/Screen/bookinConfrome.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
-class DetailsScreenCopy2Widget extends StatefulWidget {
-  const DetailsScreenCopy2Widget({Key? key}) : super(key: key);
-
+class CartDetailsScreen extends StatefulWidget {
   @override
-  _DetailsScreenCopy2WidgetState createState() =>
-      _DetailsScreenCopy2WidgetState();
+  _CartDetailsScreenState createState() => _CartDetailsScreenState();
 }
 
-class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
+class _CartDetailsScreenState extends State<CartDetailsScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  Booking() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: ((context) => BookingConformed())));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -133,71 +135,48 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                 children: [
                                   Expanded(
                                     child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: Container(
-                                              width: 100,
-                                              height: 100,
-                                              decoration: BoxDecoration(
-                                                color:
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.55, -0.4),
+                                              child: Text(
+                                                '●●●● ●●●● ●●●●',
+                                                style:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
-                                              child: Container(
-                                                width: 100,
-                                                height: 100,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0),
-                                                  child: Text(
-                                                    '●●●● ●●●● ●●●●',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily:
-                                                              'Open Sans',
-                                                          fontSize: 21,
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 25,
                                                         ),
-                                                  ),
-                                                ),
                                               ),
                                             ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 70, top: 5),
-                                            child: Container(
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.25, 3),
                                               child: Text(
                                                 '6212',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily:
-                                                              'Open Sans',
-                                                          fontSize: 15,
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 16,
                                                         ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                          ],
+                                        )),
                                   ),
                                   Container(
                                     width: MediaQuery.of(context).size.width,
@@ -231,7 +210,7 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                               ),
                                               child: Padding(
                                                 padding: const EdgeInsets.only(
-                                                    left: 20, top: 5),
+                                                    left: 15, top: 5),
                                                 child: Text(
                                                   'Expiration: 05/28 Cart 1',
                                                   style: FlutterFlowTheme.of(
@@ -309,71 +288,48 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                 children: [
                                   Expanded(
                                     child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      height: 40,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: Container(
-                                              width: 100,
-                                              height: 100,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
-                                              child: Container(
-                                                width: 100,
-                                                height: 100,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0),
-                                                  child: Text(
-                                                    '●●●● ●●●● ●●●●',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily:
-                                                              'Open Sans',
-                                                          fontSize: 21,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 70, top: 5),
-                                            child: Container(
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.55, 3),
                                               child: Text(
-                                                '7590',
+                                                '●●●● ●●●● ●●●●',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText1
                                                         .override(
-                                                          fontFamily:
-                                                              'Open Sans',
-                                                          fontSize: 15,
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 25,
                                                         ),
                                               ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.25, 3),
+                                              child: Text(
+                                                '7110',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 16,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        )),
                                   ),
                                   Container(
                                     width: MediaQuery.of(context).size.width,
@@ -407,7 +363,7 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                                               ),
                                               child: Padding(
                                                 padding: const EdgeInsets.only(
-                                                    left: 20, top: 5),
+                                                    left: 15, top: 5),
                                                 child: Text(
                                                   'Expiration: 05/28 Cart 1',
                                                   style: FlutterFlowTheme.of(
@@ -477,13 +433,16 @@ class _DetailsScreenCopy2WidgetState extends State<DetailsScreenCopy2Widget> {
                   alignment: AlignmentDirectional(-0.050000000000000044, -1),
                   child: Align(
                     alignment: AlignmentDirectional(-0.1, 0),
-                    child: Text(
-                      'PAY UPON CHECKOUT',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Open Sans',
-                            color: Color(0xFFFFB100),
-                            fontSize: 23,
-                          ),
+                    child: InkWell(
+                      onTap: Booking,
+                      child: Text(
+                        'PAY UPON CHECKOUT',
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Open Sans',
+                              color: Color(0xFFFFB100),
+                              fontSize: 23,
+                            ),
+                      ),
                     ),
                   ),
                 ),

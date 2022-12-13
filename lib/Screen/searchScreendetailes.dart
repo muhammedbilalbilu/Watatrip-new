@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:watatrip/Screen/bookingScreen.dart';
+import 'package:watatrip/Screen/searchScreen.dart';
 import 'package:watatrip/flutter_flow/canousel_slider_data.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
@@ -42,6 +43,10 @@ class SearchDetailScreen extends StatefulWidget {
 class _SearchDetailScreenState extends State<SearchDetailScreen>
     with TickerProviderStateMixin {
   TabController? _tabController;
+  SearchScreen() {
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => SearchScreenWidget()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,10 +119,13 @@ class _SearchDetailScreenState extends State<SearchDetailScreen>
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 10),
-                          child: Icon(
-                            Icons.search,
-                            size: 30,
-                            color: Color(0xFF0F5862),
+                          child: InkWell(
+                            onTap: SearchScreen,
+                            child: Icon(
+                              Icons.search,
+                              size: 30,
+                              color: Color(0xFF0F5862),
+                            ),
                           ),
                         )
                       ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:watatrip/Screen/TourOfferJoinActivityWidget.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
@@ -8,8 +9,16 @@ class TourOfferPage extends StatelessWidget {
   final apidata;
 
   const TourOfferPage({Key? key, required this.apidata}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    void TourOfferJoinActivity() {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => TourOfferJoinActivityWidget(
+                apidata: apidata,
+              )));
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -65,8 +74,8 @@ class TourOfferPage extends StatelessWidget {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image.network(
-                    'https://s3-alpha-sig.figma.com/img/939e/e036/beb4c54554999af0a4367925314a8861?Expires=1670803200&Signature=Q2Fc~E2PQoYIzCmbXhtTX966InRU9dsrpfeito~Xd09~3RGRl3qhSnz4aIRu~v4idfP81sJFjv3-SBVDPGOgJ8YoPowS9lBGvMhGFK6nMNr0f9QnH7jEDVUZSAbAFlA~xyKBH~cJXNVjR1gmwjU5YCjtTSgphvV7B6x7ercGlKXkxCEtygXJxusvU6pukCFiz6H5bHAHtXx2uXiEJrQBML3qXyERkfqPr72VO6XUWtmIM8HDbRkSh3W~XhNpB1p7gXSEOP3xC133fEZUSt3h8HygjitfPPHlXRJQmUeD25oR2TKfKxvUHegicUZnZMPKPURxMCACBmEGQe-~T3Ny6g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
+                  image: Image.asset(
+                    'assets/map_2.png',
                   ).image,
                 ),
               ),
@@ -276,7 +285,7 @@ class TourOfferPage extends StatelessWidget {
                                           padding:
                                               const EdgeInsets.only(top: 5),
                                           child: Text(
-                                            'Join up with jade',
+                                            'Join up with us',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1
                                                 .override(
@@ -398,7 +407,7 @@ class TourOfferPage extends StatelessWidget {
                                                               MainAxisSize.max,
                                                           children: [
                                                             Text(
-                                                              "USD${apidata.offerPrice}",
+                                                              "PHP${apidata.offerPrice}",
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyText1
@@ -411,20 +420,6 @@ class TourOfferPage extends StatelessWidget {
                                                                         20,
                                                                   ),
                                                             ),
-                                                            // Text(
-                                                            //   'USD 30.79',
-                                                            //   style: FlutterFlowTheme
-                                                            //           .of(context)
-                                                            //       .bodyText1
-                                                            //       .override(
-                                                            //         fontFamily:
-                                                            //             'Open Sans',
-                                                            //         color: Color(
-                                                            //             0xFF0F5862),
-                                                            //         fontSize:
-                                                            //             16,
-                                                            //       ),
-                                                            // ),
                                                           ],
                                                         ),
                                                       ),
@@ -620,7 +615,7 @@ class TourOfferPage extends StatelessWidget {
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  '8-10',
+                                                                  '8',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
@@ -658,22 +653,25 @@ class TourOfferPage extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(15),
                                           ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(-0.00, 0),
-                                            child: Text(
-                                              'JOIN ACTIVITY',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1
-                                                      .override(
-                                                        fontFamily: 'Open Sans',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBtnText,
-                                                        fontSize: 26,
-                                                      ),
+                                          child: InkWell(
+                                            onTap: TourOfferJoinActivity,
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.00, 0),
+                                              child: Text(
+                                                'JOIN ACTIVITY',
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyText1
+                                                    .override(
+                                                      fontFamily: 'Open Sans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryBtnText,
+                                                      fontSize: 26,
+                                                    ),
+                                              ),
                                             ),
                                           ),
                                         ),

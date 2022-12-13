@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:watatrip/Screen/homePage.dart';
+import 'package:watatrip/widget/FabBar.dart';
 import 'package:watatrip/widgets/snakBar.dart';
 import 'User.dart' as model;
 
@@ -73,6 +74,7 @@ class AuthMethods {
           email: email,
           password: password,
         );
+
         res = "success";
       } else {
         res = "Please enter all the fields";
@@ -116,9 +118,9 @@ class AuthMethods {
             'Number': user.phoneNumber
           });
         }
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => BottomBar()));
         res = true;
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => HomePageWidget()));
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!);

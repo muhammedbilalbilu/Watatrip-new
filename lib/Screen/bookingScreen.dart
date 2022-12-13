@@ -17,8 +17,8 @@ class _BookingScreenState extends State<BookingScreen> {
   @override
   Widget build(BuildContext context) {
     void navigator() {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: ((context) => HomePageWidget())));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: ((context) => HomePageWidget())));
     }
 
     return Scaffold(
@@ -55,9 +55,10 @@ class _BookingScreenState extends State<BookingScreen> {
                         GestureDetector(
                           onTap: () =>
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => DetailScreen(
-                                        snap: api[index],
-                                      ))),
+                            builder: (context) => DetailScreen(
+                              snap: api[index],
+                            ),
+                          )),
                           child: Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
