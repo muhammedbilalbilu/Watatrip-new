@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:watatrip/Screen/bookingScreen.dart';
+import 'package:watatrip/backend/ApiCall.dart';
+import 'package:watatrip/backend/Apidata.dart';
+import 'package:watatrip/backend/User.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -15,6 +19,48 @@ class HomePage extends StatefulWidget {
 
 class _HomePageWidgetState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
+  List<ApiFirebase> _Apidata = [];
+
+  fetchRecords() async {
+    var records = await FirebaseFirestore.instance
+        .collection('Apidata')
+        .doc(user.uid)
+        .collection('data')
+        .get();
+    mapRecords(records);
+  }
+
+  mapRecords(QuerySnapshot<Map<String, dynamic>> records) {
+    var _list = records.docs
+        .map((data) => ApiFirebase(
+            address: data['address'],
+            contactNumber: data['contactNumber'],
+            details: data['details'],
+            fb: data['fb'],
+            image1: data['image1'],
+            image2: data['image2'],
+            image4: data['image4'],
+            image3: data['image3'],
+            image5: data['image5'],
+            logo: data['logo'],
+            mapLink: data['mapLink'],
+            name: data['name'],
+            offerPrice: data['offerPrice'],
+            price: data['price']))
+        .toList();
+
+    setState(() {
+      _Apidata = _list;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchRecords();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,13 +136,25 @@ class _HomePageWidgetState extends State<HomePage> {
                 child: Align(
                   alignment: AlignmentDirectional(-0.95, -0.50),
                   child: SelectionArea(
-                      child: Text(
-                    'Recent Searches',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                          fontFamily: 'Open Sans',
-                          fontSize: 20,
-                        ),
-                  )),
+                      child: _Apidata.isEmpty
+                          ? Text(
+                              'Most People Loved it',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Open Sans',
+                                    fontSize: 20,
+                                  ),
+                            )
+                          : Text(
+                              'Recent Searches',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Open Sans',
+                                    fontSize: 20,
+                                  ),
+                            )),
                 ),
               ),
             ),
@@ -108,129 +166,158 @@ class _HomePageWidgetState extends State<HomePage> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBtnText,
                   ),
-                  child: ListView(
-                    padding: EdgeInsets.zero,
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => BookingScreen()));
-                        },
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                          child: Container(
-                            width: 150,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).lineColor,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 1,
-                                  color: Color(0xFFCDCDCD),
-                                  offset: Offset(0, 10),
-                                )
-                              ],
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15),
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Align(
-                              alignment: AlignmentDirectional(-0.65, -0.8),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        19, 13, 5, 5),
-                                    child: Image.asset(
-                                      'assets/1face.jpeg',
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        9, 2, 2, 2),
-                                    child: SelectionArea(
-                                        child: Text(
-                                      'Capitiol commons',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Open Sans',
-                                            fontSize: 12,
-                                          ),
-                                    )),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => BookingScreen()));
-                        },
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                          child: Container(
-                            width: 150,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).lineColor,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 1,
-                                  color: Color(0xFFCDCDCD),
-                                  offset: Offset(0, 10),
-                                )
-                              ],
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15),
-                                topLeft: Radius.circular(10),
-                                topRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 13, 5, 5),
-                                  child: Image.asset(
-                                    'assets/12face.jpeg',
-                                    width: 100,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      2, 2, 2, 2),
-                                  child: SelectionArea(
-                                      child: Text(
-                                    'Estancia Mall',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Open Sans',
-                                          fontSize: 12,
+                  child: _Apidata.isEmpty
+                      ? FutureBuilder(
+                          builder: (context, AsyncSnapshot snapshot) {
+                            //  7 check contusion
+                            if (!snapshot.hasData) {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            } else {
+                              // 8 check is it list or not  if it list call like this ( List<Welcome> api = snapshot.data!;)
+                              //  if not call like (Welcome api = snapshot.data!;)
+                              List<Datum> api = snapshot.data!;
+                              // 9 call Listview.builder
+                              return ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: api.length,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          5, 5, 5, 5),
+                                      child: Container(
+                                        width: 135,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .lineColor,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 0,
+                                              color: Color(0xFF9F9F9F),
+                                              offset: Offset(0, 3),
+                                              spreadRadius: 0,
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                         ),
-                                  )),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  -0.25, 0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(12, 7, 8, 4),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                  child: Image.network(
+                                                    api[index].image1,
+                                                    width: 100,
+                                                    height: 100,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Center(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 10, right: 2),
+                                                  child: Text(
+                                                    api[index].name,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 13,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            }
+                          },
+                          future: getId1(),
+                        )
+                      : ListView.builder(
+                          padding: EdgeInsets.zero,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: _Apidata.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                              child: Container(
+                                width: 135,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).lineColor,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 0,
+                                      color: Color(0xFF9F9F9F),
+                                      offset: Offset(0, 3),
+                                      spreadRadius: 0,
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional(-0.25, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12, 7, 8, 4),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          child: Image.network(
+                                            _Apidata[index].image1,
+                                            width: 100,
+                                            height: 100,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: Center(
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 10, right: 2),
+                                          child: Text(
+                                            _Apidata[index].name,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 13,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        )),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 10),
@@ -267,20 +354,21 @@ class _HomePageWidgetState extends State<HomePage> {
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: GestureDetector(
-                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => BookingScreen())),
-                    child: GridView(
-                      padding: EdgeInsets.zero,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        childAspectRatio: 1,
-                      ),
-                      scrollDirection: Axis.vertical,
-                      children: [
-                        Container(
+                  child: GridView(
+                    padding: EdgeInsets.zero,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 1,
+                    ),
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      InkWell(
+                        onTap: 
+
+                        ,
+                        child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -310,7 +398,10 @@ class _HomePageWidgetState extends State<HomePage> {
                             )),
                           ),
                         ),
-                        Container(
+                      ),
+                      InkWell(
+                        onTap: ,
+                        child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -340,7 +431,10 @@ class _HomePageWidgetState extends State<HomePage> {
                             )),
                           ),
                         ),
-                        Container(
+                      ),
+                      InkWell(
+                        onTap: ,
+                        child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -370,7 +464,10 @@ class _HomePageWidgetState extends State<HomePage> {
                             )),
                           ),
                         ),
-                        Container(
+                      ),
+                      InkWell(
+                        onTap: ,
+                        child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -400,7 +497,10 @@ class _HomePageWidgetState extends State<HomePage> {
                             )),
                           ),
                         ),
-                        Container(
+                      ),
+                      InkWell(
+                        onTap: ,
+                        child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -430,7 +530,10 @@ class _HomePageWidgetState extends State<HomePage> {
                             )),
                           ),
                         ),
-                        Container(
+                      ),
+                      InkWell(
+                        onTap: ,
+                        child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -460,7 +563,10 @@ class _HomePageWidgetState extends State<HomePage> {
                             )),
                           ),
                         ),
-                        Container(
+                      ),
+                      InkWell(
+                        onTap: ,
+                        child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -490,7 +596,10 @@ class _HomePageWidgetState extends State<HomePage> {
                             )),
                           ),
                         ),
-                        Container(
+                      ),
+                      InkWell(
+                        onTap: ,
+                        child: Container(
                           width: 100,
                           height: 100,
                           decoration: BoxDecoration(
@@ -520,8 +629,8 @@ class _HomePageWidgetState extends State<HomePage> {
                             )),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

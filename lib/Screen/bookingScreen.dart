@@ -8,7 +8,6 @@ import 'package:watatrip/backend/Apidata.dart';
 import 'package:watatrip/backend/apiFirebase.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_widgets.dart';
-import 'package:watatrip/widgets/snakBar.dart';
 
 class BookingScreen extends StatefulWidget {
   @override
@@ -439,7 +438,7 @@ class _BookingScreenState extends State<BookingScreen> {
             );
           }
         },
-        future: getName(),
+        future: getId1(),
       ),
     );
   }

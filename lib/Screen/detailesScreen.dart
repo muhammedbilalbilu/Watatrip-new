@@ -429,7 +429,7 @@ class _DetailScreenState extends State<DetailScreen>
                   ));
             }
           },
-          future: getName(),
+          future: getId1(),
         ),
       ),
     );
