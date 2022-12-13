@@ -50,7 +50,7 @@ class _SearchDetailScreenState extends State<SearchDetailScreen>
   Widget build(BuildContext context) {
     void navigator() {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: ((context) => BookingScreen())));
+          .push(MaterialPageRoute(builder: ((context) => BookingScreen2())));
     }
 
     TabController _tabController = TabController(length: 3, vsync: this);

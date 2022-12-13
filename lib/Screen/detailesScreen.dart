@@ -23,7 +23,7 @@ class _DetailScreenState extends State<DetailScreen>
   Widget build(BuildContext context) {
     void navigator() {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: ((context) => BookingScreen())));
+          .push(MaterialPageRoute(builder: ((context) => BookingScreen2())));
     }
 
     void SearchScreenNavigator() {

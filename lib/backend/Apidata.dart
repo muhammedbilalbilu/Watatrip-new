@@ -2,6 +2,11 @@
 //
 //     final welcome = welcomeFromJson(jsonString);
 
+// To parse this JSON data, do
+//
+//     final welcome = welcomeFromJson(jsonString);
+
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
 Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
@@ -9,75 +14,75 @@ Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
 String welcomeToJson(Welcome data) => json.encode(data.toJson());
 
 class Welcome {
-  Welcome({
-    required this.success,
-    required this.message,
-    required this.totalActivityId,
-    required this.data,
-  });
+    Welcome({
+        required this.success,
+        required this.message,
+        required this.totalActivityId,
+        required this.data,
+    });
 
-  bool success;
-  String message;
-  String totalActivityId;
-  List<Datum> data;
+    bool success;
+    String message;
+    String totalActivityId;
+    List<Datum> data;
 
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+    factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
         success: json["success"],
         message: json["message"],
         totalActivityId: json["Total activity id  "],
         data: List<Datum>.from(json["Data"].map((x) => Datum.fromJson(x))),
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "success": success,
         "message": message,
         "Total activity id  ": totalActivityId,
         "Data": List<dynamic>.from(data.map((x) => x.toJson())),
-      };
+    };
 }
 
 class Datum {
-  Datum({
-    required this.id,
-    required this.name,
-    required this.image1,
-    required this.image2,
-    required this.image3,
-    required this.image4,
-    required this.image5,
-    required this.logo,
-    required this.address,
-    required this.contactNumber,
-    required this.fb,
-    required this.details,
-    required this.mapLink,
-    required this.price,
-    required this.offerPrice,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.activityTypeId,
-  });
+    Datum({
+        required this.id,
+        required this.name,
+        required this.image1,
+        required this.image2,
+        required this.image3,
+        required this.image4,
+        required this.image5,
+        required this.logo,
+        required this.address,
+        required this.contactNumber,
+        required this.fb,
+        required this.details,
+        required this.mapLink,
+        required this.price,
+        required this.offerPrice,
+        required this.createdAt,
+        required this.updatedAt,
+        required this.activityTypeId,
+    });
 
-  int id;
-  String name;
-  String image1;
-  String image2;
-  String image3;
-  String image4;
-  String image5;
-  String logo;
-  String address;
-  String contactNumber;
-  String fb;
-  String details;
-  String mapLink;
-  String price;
-  String offerPrice;
-  DateTime createdAt;
-  DateTime updatedAt;
-  String activityTypeId;
+    int id;
+    String name;
+    String image1;
+    String image2;
+    String image3;
+    String image4;
+    String image5;
+    String logo;
+    String address;
+    String contactNumber;
+    String fb;
+    dynamic details;
+    String mapLink;
+    String price;
+    String offerPrice;
+    DateTime createdAt;
+    DateTime updatedAt;
+    String activityTypeId;
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         name: json["name"],
         image1: json["image1"],
@@ -96,9 +101,9 @@ class Datum {
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
         activityTypeId: json["activity_type_id"],
-      );
+    );
 
-  Map<String, dynamic> toJson() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "image1": image1,
@@ -117,5 +122,5 @@ class Datum {
         "created_at": createdAt.toIso8601String(),
         "updated_at": updatedAt.toIso8601String(),
         "activity_type_id": activityTypeId,
-      };
+    };
 }

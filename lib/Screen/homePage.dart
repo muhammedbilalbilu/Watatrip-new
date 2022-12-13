@@ -1,6 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:watatrip/Screen/ApiScreen1.dart';
+import 'package:watatrip/Screen/ApiScreen2.dart';
+import 'package:watatrip/Screen/ApiScreen3.dart';
+import 'package:watatrip/Screen/ApiScreen4.dart';
+import 'package:watatrip/Screen/ApiScreen5.dart';
+import 'package:watatrip/Screen/ApiScreen6.dart';
+import 'package:watatrip/Screen/Apiscreen8.dart';
 import 'package:watatrip/Screen/bookingScreen.dart';
 import 'package:watatrip/backend/ApiCall.dart';
 import 'package:watatrip/backend/Apidata.dart';
@@ -59,6 +66,46 @@ class _HomePageWidgetState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
     fetchRecords();
+  }
+
+  Page1() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => BookingScreen1()));
+  }
+
+  Page2() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => BookingScreen2()));
+  }
+
+  Page3() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => BookingScreen3()));
+  }
+
+  Page4() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => BookingScreen4()));
+  }
+
+  Page5() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => BookingScreen5()));
+  }
+
+  Page6() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => BookingScreen6()));
+  }
+
+  Page7() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => BookingScreen7()));
+  }
+
+  Page8() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => BookingScreen8()));
   }
 
   @override
@@ -365,9 +412,7 @@ class _HomePageWidgetState extends State<HomePage> {
                     scrollDirection: Axis.vertical,
                     children: [
                       InkWell(
-                        onTap: 
-
-                        ,
+                        onTap: Page1,
                         child: Container(
                           width: 100,
                           height: 100,
@@ -400,7 +445,7 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: ,
+                        onTap: Page2,
                         child: Container(
                           width: 100,
                           height: 100,
@@ -433,7 +478,7 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: ,
+                        onTap: Page3,
                         child: Container(
                           width: 100,
                           height: 100,
@@ -466,7 +511,7 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: ,
+                        onTap: Page4,
                         child: Container(
                           width: 100,
                           height: 100,
@@ -499,7 +544,7 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: ,
+                        onTap: Page5,
                         child: Container(
                           width: 100,
                           height: 100,
@@ -532,7 +577,7 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: ,
+                        onTap: Page6,
                         child: Container(
                           width: 100,
                           height: 100,
@@ -565,7 +610,7 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: ,
+                        onTap: Page7,
                         child: Container(
                           width: 100,
                           height: 100,
@@ -598,7 +643,7 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: ,
+                        onTap: Page8,
                         child: Container(
                           width: 100,
                           height: 100,
