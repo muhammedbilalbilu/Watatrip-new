@@ -22,11 +22,8 @@ class TourerBookingScreen extends StatefulWidget {
 }
 
 class _TourerBookingWidgetState extends State<TourerBookingScreen> {
-  int num1 = 1;
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -232,7 +229,7 @@ class _TourerBookingWidgetState extends State<TourerBookingScreen> {
                                               .secondaryBackground,
                                         ),
                                         child: Text(
-                                          'Guest ',
+                                          'Guest$index ',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(

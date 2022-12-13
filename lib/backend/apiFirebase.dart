@@ -24,8 +24,11 @@ class ApiFirebaseData {
       required String offerPrice}) async {
     String res = "Some error Occurred";
     try {
-      final docUser =
-          firestore.collection('Apidata').doc(user).collection('data').doc();
+      final docUser = firestore
+          .collection('Apidata')
+          .doc(user)
+          .collection('data')
+          .doc(user);
       ApiFirebase _apiFirebase = ApiFirebase(
           name: name,
           image1: image1,

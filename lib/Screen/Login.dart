@@ -3,7 +3,6 @@ import 'package:watatrip/Screen/homePage.dart';
 import 'package:watatrip/Screen/signUp.dart';
 import 'package:watatrip/Screen/verifyAccount.dart';
 import 'package:watatrip/backend/auth.dart';
-import 'package:watatrip/widget/FabBar.dart';
 import 'package:watatrip/widgets/snakBar.dart';
 
 import '../flutter_flow/flutter_flow_icon_button.dart';
