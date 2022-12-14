@@ -9,12 +9,12 @@ import 'package:watatrip/backend/apiFirebase.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_widgets.dart';
 
-class BookingScreen7 extends StatefulWidget {
+class CityBookingScreen extends StatefulWidget {
   @override
-  State<BookingScreen7> createState() => _BookingScreenState();
+  State<CityBookingScreen> createState() => _BookingScreenState();
 }
 
-class _BookingScreenState extends State<BookingScreen7> {
+class _BookingScreenState extends State<CityBookingScreen> {
   @override
   Widget build(BuildContext context) {
     bool _isLoading;
@@ -438,7 +438,7 @@ class _BookingScreenState extends State<BookingScreen7> {
             );
           }
         },
-        future: getId7(),
+        future: getId3(),
       ),
     );
   }

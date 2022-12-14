@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:watatrip/Screen/ApiScreen1.dart';
-import 'package:watatrip/Screen/ApiScreen2.dart';
-import 'package:watatrip/Screen/ApiScreen3.dart';
-import 'package:watatrip/Screen/ApiScreen4.dart';
-import 'package:watatrip/Screen/ApiScreen5.dart';
-import 'package:watatrip/Screen/ApiScreen6.dart';
-import 'package:watatrip/Screen/Apiscreen8.dart';
+import 'package:watatrip/Screen/AgriBookingScreen.dart';
+import 'package:watatrip/Screen/ConcertsBookingScreen.dart';
+import 'package:watatrip/Screen/CultourlTour.dart';
+import 'package:watatrip/Screen/HeritageBookingScreen.dart';
+import 'package:watatrip/Screen/OutdoorBookingScreen.dart';
+import 'package:watatrip/Screen/WaterAdve.dart';
+import 'package:watatrip/Screen/SportsTour.dart';
 import 'package:watatrip/Screen/bookingScreen.dart';
 import 'package:watatrip/backend/ApiCall.dart';
 import 'package:watatrip/backend/Apidata.dart';
@@ -70,7 +70,7 @@ class _HomePageWidgetState extends State<HomePage> {
 
   Page1() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => BookingScreen1()));
+        .push(MaterialPageRoute(builder: (context) => Agritour()));
   }
 
   Page2() {
@@ -80,32 +80,32 @@ class _HomePageWidgetState extends State<HomePage> {
 
   Page3() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => BookingScreen3()));
+        .push(MaterialPageRoute(builder: (context) => CityBookingScreen()));
   }
 
   Page4() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => BookingScreen4()));
+        .push(MaterialPageRoute(builder: (context) => CultureTourScreen()));
   }
 
   Page5() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => BookingScreen5()));
+        .push(MaterialPageRoute(builder: (context) => HeritageBookingScreen()));
   }
 
   Page6() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => BookingScreen6()));
+        .push(MaterialPageRoute(builder: (context) => OutdoorBookingScreen()));
   }
 
   Page7() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => BookingScreen7()));
+        .push(MaterialPageRoute(builder: (context) => WaterAdvancer()));
   }
 
   Page8() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => BookingScreen8()));
+        .push(MaterialPageRoute(builder: (context) => SportsBookingScreen()));
   }
 
   @override
@@ -431,7 +431,7 @@ class _HomePageWidgetState extends State<HomePage> {
                             alignment: AlignmentDirectional(-0.2, 0.8),
                             child: SelectionArea(
                                 child: Text(
-                              'Agri-tour',
+                              'Agritour',
                               style: FlutterFlowTheme.of(context)
                                   .bodyText1
                                   .override(

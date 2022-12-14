@@ -9,12 +9,12 @@ import 'package:watatrip/backend/apiFirebase.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_widgets.dart';
 
-class BookingScreen8 extends StatefulWidget {
+class SportsBookingScreen extends StatefulWidget {
   @override
-  State<BookingScreen8> createState() => _BookingScreenState();
+  State<SportsBookingScreen> createState() => _BookingScreenState();
 }
 
-class _BookingScreenState extends State<BookingScreen8> {
+class _BookingScreenState extends State<SportsBookingScreen> {
   @override
   Widget build(BuildContext context) {
     bool _isLoading;
