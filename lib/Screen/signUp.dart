@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:watatrip/Screen/homePage.dart';
 import 'package:watatrip/backend/auth.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_util.dart';
-import 'package:watatrip/widgets/snakBar.dart';
+import 'package:watatrip/widget/snakBar.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 
