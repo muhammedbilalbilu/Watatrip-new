@@ -6,6 +6,7 @@ import 'package:watatrip/Screen/ConcertsBookingScreen.dart';
 import 'package:watatrip/Screen/CultourlTour.dart';
 import 'package:watatrip/Screen/HeritageBookingScreen.dart';
 import 'package:watatrip/Screen/OutdoorBookingScreen.dart';
+
 import 'package:watatrip/Screen/WaterAdve.dart';
 import 'package:watatrip/Screen/SportsTour.dart';
 import 'package:watatrip/Screen/bookingScreen.dart';
@@ -15,6 +16,7 @@ import 'package:watatrip/backend/User.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
 import '../flutter_flow/flutter_flow_icon_button.dart';
+import 'detailesScreen.dart';
 
 class HomePage extends StatefulWidget {
   final apidata;
@@ -38,23 +40,7 @@ class _HomePageWidgetState extends State<HomePage> {
   }
 
   mapRecords(QuerySnapshot<Map<String, dynamic>> records) {
-    var _list = records.docs
-        .map((data) => ApiFirebase(
-            address: data['address'],
-            contactNumber: data['contactNumber'],
-            details: data['details'],
-            fb: data['fb'],
-            image1: data['image1'],
-            image2: data['image2'],
-            image4: data['image4'],
-            image3: data['image3'],
-            image5: data['image5'],
-            logo: data['logo'],
-            mapLink: data['mapLink'],
-            name: data['name'],
-            offerPrice: data['offerPrice'],
-            price: data['price']))
-        .toList();
+    var _list = records.docs.map((data) => ApiFirebase.fromSnap(data)).toList();
 
     setState(() {
       _Apidata = _list;
@@ -107,6 +93,9 @@ class _HomePageWidgetState extends State<HomePage> {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => SportsBookingScreen()));
   }
+//  ScreenFirebase() {
+
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -230,67 +219,80 @@ class _HomePageWidgetState extends State<HomePage> {
                                   scrollDirection: Axis.horizontal,
                                   itemCount: api.length,
                                   itemBuilder: (context, index) {
-                                    return Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5, 5, 5, 5),
-                                      child: Container(
-                                        width: 135,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .lineColor,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 0,
-                                              color: Color(0xFF9F9F9F),
-                                              offset: Offset(0, 3),
-                                              spreadRadius: 0,
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  -0.25, 0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(12, 7, 8, 4),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                  child: Image.network(
-                                                    api[index].image1,
-                                                    width: 100,
-                                                    height: 100,
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Center(
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DetailScreen(
+                                                      snap: api[index],
+                                                    )));
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5, 5, 5, 5),
+                                        child: Container(
+                                          width: 135,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .lineColor,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                blurRadius: 0,
+                                                color: Color(0xFF9F9F9F),
+                                                offset: Offset(0, 3),
+                                                spreadRadius: 0,
+                                              )
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    -0.25, 0),
                                                 child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 10, right: 2),
-                                                  child: Text(
-                                                    api[index].name,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 13,
-                                                        ),
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(12, 7, 8, 4),
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5),
+                                                    child: Image.network(
+                                                      api[index].image1,
+                                                      width: 100,
+                                                      height: 100,
+                                                      fit: BoxFit.cover,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                              Expanded(
+                                                child: Center(
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 10, right: 2),
+                                                    child: Text(
+                                                      api[index].name,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 13,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     );
@@ -304,62 +306,74 @@ class _HomePageWidgetState extends State<HomePage> {
                           scrollDirection: Axis.horizontal,
                           itemCount: _Apidata.length,
                           itemBuilder: (context, index) {
-                            return Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                              child: Container(
-                                width: 135,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).lineColor,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 0,
-                                      color: Color(0xFF9F9F9F),
-                                      offset: Offset(0, 3),
-                                      spreadRadius: 0,
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(-0.25, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12, 7, 8, 4),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                          child: Image.network(
-                                            _Apidata[index].image1,
-                                            width: 100,
-                                            height: 100,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Center(
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => DetailScreen(
+                                          snap: _Apidata[index],
+                                        )));
+                              },
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                                child: Container(
+                                  width: 135,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        FlutterFlowTheme.of(context).lineColor,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 0,
+                                        color: Color(0xFF9F9F9F),
+                                        offset: Offset(0, 3),
+                                        spreadRadius: 0,
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-0.25, 0),
                                         child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 10, right: 2),
-                                          child: Text(
-                                            _Apidata[index].name,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 13,
-                                                ),
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12, 7, 8, 4),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            child: Image.network(
+                                              _Apidata[index].image1,
+                                              width: 100,
+                                              height: 100,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Expanded(
+                                        child: Center(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 10, right: 2),
+                                            child: Text(
+                                              _Apidata[index].name,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 13,
+                                                      ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             );

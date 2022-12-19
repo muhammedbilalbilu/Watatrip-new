@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:watatrip/Screen/ChatScreen.dart';
 import 'package:watatrip/Screen/Login.dart';
-import 'package:watatrip/Screen/bookingScreen.dart';
-import 'Screen/homePage.dart';
-import 'Screen/AgriBookingScreen.dart';
+import 'package:watatrip/Screen/homePage.dart';
+import 'package:watatrip/Screen/ui.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -32,6 +32,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.light, useMaterial3: true),
+      // home: ChatWidget(),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {

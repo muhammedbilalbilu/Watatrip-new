@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:watatrip/widget/FabBar.dart';
+import 'package:watatrip/Screen/homePage.dart';
 import 'package:watatrip/widgets/snakBar.dart';
 import 'User.dart' as model;
 
@@ -36,13 +36,14 @@ class AuthMethods {
         );
 
         model.User _user = model.User(
-          username: username,
-          uid: cred.user!.uid,
-          lastname: lastname,
-          email: email,
-          birthday: birthday,
-          number: number,
-        );
+            username: username,
+            uid: cred.user!.uid,
+            lastname: lastname,
+            email: email,
+            birthday: birthday,
+            number: number,
+            profilePhoto:
+                'https://i.pinimg.com/736x/cb/45/72/cb4572f19ab7505d552206ed5dfb3739.jpg');
 
         // adding user in our database
         await _firestore
@@ -109,16 +110,21 @@ class AuthMethods {
 
       if (user != null) {
         if (userCredential.additionalUserInfo!.isNewUser) {
-          await _firestore.collection('users').doc(user.uid).set({
-            'username': user.displayName,
-            'uid': user.uid,
-            'profilePhoto': user.photoURL,
-            'Email': user.email,
-            'Number': user.phoneNumber
-          });
+          model.User _user = model.User(
+              username: user.displayName!,
+              uid: user.uid,
+              lastname: 'Bilalnumber',
+              email: user.email!,
+              birthday: 'Bilalnumber',
+              number: 'Bilalnumber',
+              profilePhoto: user.photoURL!);
+          await _firestore
+              .collection('users')
+              .doc(user.uid)
+              .set(_user.toJson());
         }
         Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => BottomBar()));
+            MaterialPageRoute(builder: (context) => HomePage()));
         res = true;
       }
     } on FirebaseAuthException catch (e) {

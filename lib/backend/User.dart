@@ -10,14 +10,16 @@ class User {
   final String username;
   final String birthday;
   final String number;
+  final String profilePhoto;
 
   const User({
-    required this.username,
     required this.email,
     required this.uid,
     required this.lastname,
+    required this.username,
     required this.birthday,
     required this.number,
+    required this.profilePhoto,
   });
 
   static User fromSnap(DocumentSnapshot snap) {
@@ -30,6 +32,7 @@ class User {
       lastname: snapshot["lastname"],
       birthday: snapshot["birthday"],
       number: snapshot["number"],
+      profilePhoto: snapshot["profilePhoto"],
     );
   }
 
@@ -40,6 +43,7 @@ class User {
         "lastname": lastname,
         "birthday": birthday,
         "number": number,
+        "profilePhoto": profilePhoto
       };
 }
 
