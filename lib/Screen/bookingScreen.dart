@@ -10,6 +10,7 @@ import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_widgets.dart';
 
 class BookingScreen2 extends StatefulWidget {
+  static const routeName = '/BookingScreen2';
   @override
   State<BookingScreen2> createState() => _BookingScreenState();
 }
@@ -17,19 +18,12 @@ class BookingScreen2 extends StatefulWidget {
 class _BookingScreenState extends State<BookingScreen2> {
   @override
   Widget build(BuildContext context) {
-    bool _isLoading;
-
-    void navigator() {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: ((context) => HomePage())));
-    }
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              navigator();
+              Navigator.pushNamed(context, HomePage.routeName);
             },
             icon: Icon(
               Icons.arrow_back,
@@ -54,7 +48,7 @@ class _BookingScreenState extends State<BookingScreen2> {
                   itemCount: api.length,
                   itemBuilder: (context, index) {
                     getApiData() async {
-                      print('workin');
+                      print('working');
                       String res = await ApiFirebaseData().Apidataget(
                           name: api[index].name,
                           image1: api[index].image1,

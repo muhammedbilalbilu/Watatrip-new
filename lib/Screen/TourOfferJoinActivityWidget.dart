@@ -307,16 +307,6 @@ class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
     setState(() {});
   }
 
-  void SignPage() {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => TourerBookingScreen(
-              email: formlst,
-              name: formlst,
-              phone: formlst,
-              index: j,
-            )));
-  }
-
   save1() {
     setState(() {});
     name.clear();
@@ -334,7 +324,6 @@ class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
                 name: name,
                 email: email,
                 phone: phone,
-                index: j,
               )),
     );
 

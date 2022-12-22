@@ -11,6 +11,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = '/login-screen';
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -62,16 +63,6 @@ class _LoginScreenState extends State<LoginScreen> {
       // show the error
       showSnackBar(context, res.toString());
     }
-  }
-
-  void SignPage() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => SignUpScreen()));
-  }
-
-  VerifyAccountWidget() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => VerifyAccount()));
   }
 
   @override
@@ -371,7 +362,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               alignment: AlignmentDirectional(1, 0),
                               child: SelectionArea(
                                   child: InkWell(
-                                onTap: VerifyAccountWidget,
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, VerifyAccount.routeName);
+                                },
                                 child: Text(
                                   'Forgot password?',
                                   style: FlutterFlowTheme.of(context)
@@ -552,7 +546,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: SelectionArea(
                               child: InkWell(
                             onTap: () {
-                              SignPage();
+                              Navigator.pushNamed(
+                                  context, SignUpScreen.routeName);
                             },
                             child: Text(
                               ' Sign Up',

@@ -10,6 +10,7 @@ import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_widgets.dart';
 
 class Agritour extends StatefulWidget {
+  static const routeName = '/Agritour';
   @override
   State<Agritour> createState() => _BookingScreen1State();
 }
@@ -17,19 +18,12 @@ class Agritour extends StatefulWidget {
 class _BookingScreen1State extends State<Agritour> {
   @override
   Widget build(BuildContext context) {
-    bool _isLoading;
-
-    void navigator() {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: ((context) => HomePage())));
-    }
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              navigator();
+              Navigator.pushNamed(context, HomePage.routeName);
             },
             icon: Icon(
               Icons.arrow_back,
@@ -54,7 +48,7 @@ class _BookingScreen1State extends State<Agritour> {
                   itemCount: api.length,
                   itemBuilder: (context, index) {
                     getApiData() async {
-                      print('workin');
+                      print('working');
                       String res = await ApiFirebaseData().Apidataget(
                           name: api[index].name,
                           image1: api[index].image1,

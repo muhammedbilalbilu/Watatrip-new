@@ -3,6 +3,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
 class VerifyAccount extends StatefulWidget {
+  static const routeName = '/VerifyAccount';
   @override
   State<VerifyAccount> createState() => _VerifyAccountState();
 }

@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 
 class SearchScreen extends StatefulWidget {
+  static const routeName = '/SearchScreen';
   @override
   _SearchScreenWidgetState createState() => _SearchScreenWidgetState();
 }
@@ -61,8 +62,8 @@ class _SearchScreenWidgetState extends State<SearchScreen> {
     textController = TextEditingController();
   }
 
-  void updatelist(String valu) {
-    if (valu.isEmpty) {
+  void updates(String value) {
+    if (value.isEmpty) {
       _allPlacedata = _allPlace;
     } else {
       setState(() {
@@ -70,7 +71,7 @@ class _SearchScreenWidgetState extends State<SearchScreen> {
             .where((element) => element['name']
                 .toString()
                 .toLowerCase()
-                .contains(valu.toString().toLowerCase()))
+                .contains(value.toString().toLowerCase()))
             .toList();
       });
     }
@@ -124,7 +125,7 @@ class _SearchScreenWidgetState extends State<SearchScreen> {
                                 autofocus: true,
                                 obscureText: false,
                                 onChanged: (value) {
-                                  updatelist(value);
+                                  updates(value);
                                 },
                                 decoration: InputDecoration(
                                   hintText: 'Search ',

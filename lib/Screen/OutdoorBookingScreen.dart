@@ -10,6 +10,7 @@ import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_widgets.dart';
 
 class OutdoorBookingScreen extends StatefulWidget {
+  static const routeName = '/OutdoorBookingScreen';
   @override
   State<OutdoorBookingScreen> createState() => _BookingScreenState();
 }
@@ -17,19 +18,12 @@ class OutdoorBookingScreen extends StatefulWidget {
 class _BookingScreenState extends State<OutdoorBookingScreen> {
   @override
   Widget build(BuildContext context) {
-    bool _isLoading;
-
-    void navigator() {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: ((context) => HomePage())));
-    }
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              navigator();
+              Navigator.pushNamed(context, HomePage.routeName);
             },
             icon: Icon(
               Icons.arrow_back,

@@ -1,17 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:watatrip/backend/apiFirebase.dart';
 import 'package:watatrip/widget/meChat.dart';
-
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AudioChatDemoWidget extends StatefulWidget {
-  final receiver;
-  const AudioChatDemoWidget({Key? key, required this.receiver})
+  final currentId;
+  final receiverId;
+  final receiverName;
+  final receiverImage;
+  const AudioChatDemoWidget(
+      {Key? key,
+      required this.currentId,
+      required this.receiverId,
+      required this.receiverName,
+      required this.receiverImage})
       : super(key: key);
 
   @override
@@ -118,7 +123,7 @@ class _AudioChatDemoWidgetState extends State<AudioChatDemoWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            widget.receiver.username,
+                                            widget.receiverName,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyText1,
                                           ),
@@ -156,7 +161,7 @@ class _AudioChatDemoWidgetState extends State<AudioChatDemoWidget> {
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
-                                              widget.receiver.profilePhoto,
+                                              widget.receiverImage,
                                             ),
                                           ),
                                         ),
@@ -185,7 +190,7 @@ class _AudioChatDemoWidgetState extends State<AudioChatDemoWidget> {
                               .collection('users')
                               .doc(user.uid)
                               .collection('messages')
-                              .doc(widget.receiver.uid)
+                              .doc(widget.receiverId)
                               .collection('chats')
                               .orderBy('date')
                               .snapshots(),
@@ -303,11 +308,11 @@ class _AudioChatDemoWidgetState extends State<AudioChatDemoWidget> {
                                   .collection('users')
                                   .doc(user.uid)
                                   .collection('messages')
-                                  .doc(widget.receiver.uid)
+                                  .doc(widget.receiverId)
                                   .collection('chats')
                                   .add({
                                 "senderId": user.uid,
-                                "receiverId": widget.receiver.uid,
+                                "receiverId": widget.receiverId,
                                 "message": message,
                                 "date": DateTime.now()
                               }).then((value) {
@@ -315,23 +320,23 @@ class _AudioChatDemoWidgetState extends State<AudioChatDemoWidget> {
                                     .collection('users')
                                     .doc(user.uid)
                                     .collection('messages')
-                                    .doc(widget.receiver.uid)
+                                    .doc(widget.receiverId)
                                     .set({'last_message': message});
                               });
                               await FirebaseFirestore.instance
                                   .collection('users')
-                                  .doc(widget.receiver.uid)
+                                  .doc(widget.receiverId)
                                   .collection('messages')
                                   .doc(user.uid)
                                   .collection('chats')
                                   .add({
                                 "senderId": user.uid,
-                                "receiverId": widget.receiver.uid,
+                                "receiverId": widget.receiverId,
                                 "message": message,
                                 "date": DateTime.now()
                               }).then((value) => FirebaseFirestore.instance
                                       .collection('users')
-                                      .doc(widget.receiver.uid)
+                                      .doc(widget.receiverId)
                                       .collection('messages')
                                       .doc(user.uid)
                                       .set({'last_message': message}));

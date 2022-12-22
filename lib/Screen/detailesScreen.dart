@@ -21,16 +21,6 @@ class _DetailScreenState extends State<DetailScreen>
 
   @override
   Widget build(BuildContext context) {
-    void navigator() {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: ((context) => BookingScreen2())));
-    }
-
-    void SearchScreenNavigator() {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: ((context) => SearchScreen())));
-    }
-
     TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       backgroundColor: Color(0xFFF1F3F5),
@@ -60,7 +50,8 @@ class _DetailScreenState extends State<DetailScreen>
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: InkWell(
-                                onTap: navigator,
+                                onTap: () => Navigator.pushNamed(
+                                    context, BookingScreen2.routeName),
                                 child: Icon(
                                   Icons.arrow_back,
                                   size: 25,
@@ -108,7 +99,8 @@ class _DetailScreenState extends State<DetailScreen>
                             Padding(
                               padding: const EdgeInsets.only(right: 10),
                               child: InkWell(
-                                onTap: SearchScreenNavigator,
+                                onTap: () => Navigator.pushNamed(
+                                    context, SearchScreen.routeName),
                                 child: Icon(
                                   Icons.search,
                                   size: 30,

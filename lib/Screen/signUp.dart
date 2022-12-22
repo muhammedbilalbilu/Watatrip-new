@@ -8,6 +8,7 @@ import 'package:watatrip/widget/snakBar.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 
 class SignUpScreen extends StatefulWidget {
+  static const routeName = '/SignUpScreen';
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }

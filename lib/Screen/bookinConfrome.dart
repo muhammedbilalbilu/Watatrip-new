@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
 class BookingConformed extends StatefulWidget {
+  static const routeName = '/BookingConformed';
   @override
   State<BookingConformed> createState() => _BookingConformedState();
 }

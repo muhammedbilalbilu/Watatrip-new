@@ -6,7 +6,6 @@ import 'package:watatrip/Screen/ConcertsBookingScreen.dart';
 import 'package:watatrip/Screen/CultourlTour.dart';
 import 'package:watatrip/Screen/HeritageBookingScreen.dart';
 import 'package:watatrip/Screen/OutdoorBookingScreen.dart';
-
 import 'package:watatrip/Screen/WaterAdve.dart';
 import 'package:watatrip/Screen/SportsTour.dart';
 import 'package:watatrip/Screen/bookingScreen.dart';
@@ -14,11 +13,11 @@ import 'package:watatrip/backend/ApiCall.dart';
 import 'package:watatrip/backend/Apidata.dart';
 import 'package:watatrip/backend/User.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
-
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import 'detailesScreen.dart';
 
 class HomePage extends StatefulWidget {
+  static const routeName = '/HomePage';
   final apidata;
   const HomePage({Key? key, this.apidata}) : super(key: key);
 
@@ -53,49 +52,6 @@ class _HomePageWidgetState extends State<HomePage> {
     super.initState();
     fetchRecords();
   }
-
-  Page1() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Agritour()));
-  }
-
-  Page2() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => BookingScreen2()));
-  }
-
-  Page3() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => CityBookingScreen()));
-  }
-
-  Page4() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => CultureTourScreen()));
-  }
-
-  Page5() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => HeritageBookingScreen()));
-  }
-
-  Page6() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => OutdoorBookingScreen()));
-  }
-
-  Page7() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => WaterAdvancer()));
-  }
-
-  Page8() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => SportsBookingScreen()));
-  }
-//  ScreenFirebase() {
-
-//   }
 
   @override
   Widget build(BuildContext context) {
@@ -426,7 +382,8 @@ class _HomePageWidgetState extends State<HomePage> {
                     scrollDirection: Axis.vertical,
                     children: [
                       InkWell(
-                        onTap: Page1,
+                        onTap: () =>
+                            Navigator.pushNamed(context, Agritour.routeName),
                         child: Container(
                           width: 100,
                           height: 100,
@@ -459,7 +416,8 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: Page2,
+                        onTap: () => Navigator.pushNamed(
+                            context, BookingScreen2.routeName),
                         child: Container(
                           width: 100,
                           height: 100,
@@ -492,7 +450,8 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: Page3,
+                        onTap: () => Navigator.pushNamed(
+                            context, CityBookingScreen.routeName),
                         child: Container(
                           width: 100,
                           height: 100,
@@ -525,7 +484,8 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: Page4,
+                        onTap: () => Navigator.pushNamed(
+                            context, CultureTourScreen.routeName),
                         child: Container(
                           width: 100,
                           height: 100,
@@ -558,7 +518,8 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: Page5,
+                        onTap: () => Navigator.pushNamed(
+                            context, HeritageBookingScreen.routeName),
                         child: Container(
                           width: 100,
                           height: 100,
@@ -591,7 +552,8 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: Page6,
+                        onTap: () => Navigator.pushNamed(
+                            context, OutdoorBookingScreen.routeName),
                         child: Container(
                           width: 100,
                           height: 100,
@@ -624,7 +586,8 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: Page7,
+                        onTap: () => Navigator.pushNamed(
+                            context, WaterAdvancer.routeName),
                         child: Container(
                           width: 100,
                           height: 100,
@@ -657,7 +620,8 @@ class _HomePageWidgetState extends State<HomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: Page8,
+                        onTap: () => Navigator.pushNamed(
+                            context, SportsBookingScreen.routeName),
                         child: Container(
                           width: 100,
                           height: 100,

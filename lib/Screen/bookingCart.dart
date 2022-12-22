@@ -3,16 +3,13 @@ import 'package:watatrip/Screen/bookinConfrome.dart';
 import 'package:watatrip/flutter_flow/flutter_flow_theme.dart';
 
 class CartDetailsScreen extends StatefulWidget {
+  static const routeName = '/CartDetailsScreen';
   @override
   _CartDetailsScreenState createState() => _CartDetailsScreenState();
 }
 
 class _CartDetailsScreenState extends State<CartDetailsScreen> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  Booking() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: ((context) => BookingConformed())));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -434,7 +431,8 @@ class _CartDetailsScreenState extends State<CartDetailsScreen> {
                   child: Align(
                     alignment: AlignmentDirectional(-0.1, 0),
                     child: InkWell(
-                      onTap: Booking,
+                      onTap: () => Navigator.pushNamed(
+                          context, BookingConformed.routeName),
                       child: Text(
                         'PAY UPON CHECKOUT',
                         style: FlutterFlowTheme.of(context).bodyText1.override(
