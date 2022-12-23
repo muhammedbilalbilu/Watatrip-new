@@ -217,13 +217,11 @@ class _HomePageWidgetState extends State<HomePage> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             5),
-                                                    child: Center(
-                                                      child: Image.network(
-                                                        api[index].image1,
-                                                        width: 100,
-                                                        height: 100,
-                                                        fit: BoxFit.cover,
-                                                      ),
+                                                    child: Image.network(
+                                                      api[index].image1,
+                                                      width: 100,
+                                                      height: 100,
+                                                      fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
@@ -234,19 +232,18 @@ class _HomePageWidgetState extends State<HomePage> {
                                                     padding:
                                                         const EdgeInsets.only(
                                                             left: 10, right: 2),
-                                                    child: Center(
-                                                      child: Text(
-                                                        api[index].name,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  fontSize: 13,
-                                                                ),
-                                                      ),
+                                                    child: Text(
+                                                      api[index].name,
+                                                      maxLines: 1,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 13,
+                                                              ),
                                                     ),
                                                   ),
                                                 ),
@@ -305,37 +302,29 @@ class _HomePageWidgetState extends State<HomePage> {
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(5),
-                                            child: Center(
-                                              child: Image.network(
-                                                _Apidata[index].image1,
-                                                width: 100,
-                                                height: 100,
-                                                fit: BoxFit.cover,
-                                              ),
+                                            child: Image.network(
+                                              _Apidata[index].image1,
+                                              width: 100,
+                                              height: 105,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
                                       ),
-                                      Expanded(
-                                        child: Center(
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 10, right: 2),
-                                            child: Center(
-                                              child: Text(
-                                                _Apidata[index].name,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 13,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                      // Expanded(
+                                      //   child: Center(
+                                      //     child: Text(
+                                      //       // _Apidata[index].name,
+                                      //       '', maxLines: 1,
+                                      //       style: FlutterFlowTheme.of(context)
+                                      //           .bodyText1
+                                      //           .override(
+                                      //             fontFamily: 'Poppins',
+                                      //             fontSize: 13,
+                                      //           ),
+                                      //     ),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ),

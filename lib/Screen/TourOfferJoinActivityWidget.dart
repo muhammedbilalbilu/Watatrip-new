@@ -286,7 +286,7 @@ class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
   int i = 0;
   deleteList() {
     setState(() {});
-    if (j == 0) {
+    if (j == 1) {
       j = j + 1;
       formlst.add(new form(index: i));
     }
@@ -297,7 +297,7 @@ class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
 
   addList() {
     setState(() {});
-    if (j == 10) {
+    if (j == 8) {
       j = j - 1;
       formlst.removeLast();
     }
@@ -324,6 +324,10 @@ class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
                 name: name,
                 email: email,
                 phone: phone,
+                index: j,
+                apidata: widget.apidata,
+                date: text,
+                datebook: datebook,
               )),
     );
 
@@ -404,18 +408,22 @@ class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
                                         color: Color(0xFF0F5862),
                                         size: 35,
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10, 0, 0, 0),
-                                        child: Text(
-                                          widget.apidata.name,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color: Color(0xFF007AFF),
-                                                fontSize: 20,
-                                              ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 0, 0),
+                                          child: Text(
+                                            widget.apidata.name,
+                                            maxLines: 1,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFF007AFF),
+                                                  fontSize: 20,
+                                                ),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -559,7 +567,7 @@ class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10, 0, 0, 0),
                                         child: Text(
-                                          '8-10 PAX',
+                                          '7-8 PAX',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
@@ -740,8 +748,15 @@ class _TourOfferJoinActivityWidgetState extends State<TourOfferJoinActivity> {
                                       setState(() {
                                         final isValidFrom =
                                             random.currentState!.validate();
+
                                         if (isValidFrom) {
                                           save1();
+
+                                          formlst.clear();
+                                          j = 0;
+                                        } else {
+                                          showSnackbar(context,
+                                              'Please Add Guest detailers');
                                         }
                                       });
                                     },

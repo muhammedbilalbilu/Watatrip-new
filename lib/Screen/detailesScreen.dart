@@ -85,6 +85,7 @@ class _DetailScreenState extends State<DetailScreen>
                                     padding: const EdgeInsets.only(left: 15),
                                     child: Text(
                                       widget.snap.name,
+                                      maxLines: 1,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
@@ -223,6 +224,7 @@ class _DetailScreenState extends State<DetailScreen>
                                                           child: SelectionArea(
                                                               child: Text(
                                                             widget.snap.address,
+                                                            maxLines: 1,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyText1
@@ -308,52 +310,53 @@ class _DetailScreenState extends State<DetailScreen>
                                                   alignment:
                                                       AlignmentDirectional(
                                                           -1, -0.3),
-                                                  child: Text(
-                                                    'FB page: ',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyText1
-                                                        .override(
-                                                          fontFamily:
-                                                              'Open Sans',
-                                                          fontSize: 15,
-                                                          fontWeight:
-                                                              FontWeight.w800,
-                                                        ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 7),
+                                                    child: Text(
+                                                      'FB page: ',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyText1
+                                                          .override(
+                                                            fontFamily:
+                                                                'Open Sans',
+                                                            fontSize: 15,
+                                                            fontWeight:
+                                                                FontWeight.w800,
+                                                          ),
+                                                    ),
                                                   ),
                                                 )),
                                                 Expanded(
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            -0.25, -0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0, 10, 0, 0),
-                                                      child: SelectionArea(
-                                                          child: InkWell(
-                                                        onTap: () async {
-                                                          await launchUrl(
-                                                              Uri.parse(widget
-                                                                  .snap.fb));
-                                                        },
-                                                        child: Text(
-                                                          api[1].fb,
-                                                          maxLines: 2,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Open Sans',
-                                                                color: Color(
-                                                                    0xFF2919CA),
-                                                              ),
-                                                        ),
-                                                      )),
-                                                    ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(
+                                                                0, 0, 0, 0),
+                                                    child: SelectionArea(
+                                                        child: InkWell(
+                                                      onTap: () async {
+                                                        await launchUrl(
+                                                            Uri.parse(widget
+                                                                .snap.fb));
+                                                      },
+                                                      child: Text(
+                                                        api[1].fb,
+                                                        maxLines: 1,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Open Sans',
+                                                                  color: Color(
+                                                                      0xFF2919CA),
+                                                                ),
+                                                      ),
+                                                    )),
                                                   ),
                                                 ),
                                               ],
